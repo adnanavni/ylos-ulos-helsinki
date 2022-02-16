@@ -1,9 +1,11 @@
 header {
     width: 100%;
     background-color:#161B33;
+
 }
 body{
   background-image: url("../resources/helsinki2.jpg");
+  width: 100%;
 }
 header h1 {
     font-size: 70px;
@@ -14,6 +16,7 @@ header h1 {
     /*font-family: 'Oswald', sans-serif;*/
     font-family: 'Bebas Neue', cursive;
 }
+
 header ::after {
     content:'';
     display:table;
@@ -164,3 +167,33 @@ body{
     from {opacity: .4}
     to {opacity: 1}
   }
+  @media only screen and (max-width: 1184px) {
+    header h1 {
+      float: none;
+      margin: auto;
+      text-align: center;
+  }
+  #menu {
+    float:none;
+    margin: auto;
+    text-align: center;
+}
+#menu li {
+  margin: 0 50px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+
+}
+  
+}
+
+
+
+body{
+    margin:0;
+}
+.container{
+    width: 100%;
+    margin: 0 auto;
+}
+  
