@@ -25,8 +25,10 @@ function success(pos) {
         .openPopup();
 
     const liikuntaNappi = document.getElementById('liikunta');
-    liikuntaNappi.addEventListener('click', () => liikunta());
+    liikuntaNappi.addEventListener('click', () => liikunta(), { once: true });
 
+    const uimaPaikat = document.getElementById('vesi');
+    uimaPaikat.addEventListener('click', () => vesisto(), { once: true });
 }
 
 // Funktio, joka ajetaan, jos paikkatietojen hakemisessa tapahtuu virhe
@@ -37,7 +39,7 @@ function error(err) {
 // Käynnistetään paikkatietojen haku
 navigator.geolocation.getCurrentPosition(success, error, options);
 
-// funktio joka hakee ensin Helsingin alueelta sportsPlaceId:t, joiden avulla hakee myöhemmin tietoja liikuntapaikasta
+// Funktio joka hakee ensin Helsingin alueelta sportsPlaceId:t, joiden avulla hakee myöhemmin tietoja liikuntapaikasta
 async function liikunta() {
     const proxy = 'https://api.allorigins.win/get?url=';
     const haku = 'http://lipas.cc.jyu.fi/api/sports-places?searchString=helsinki';
@@ -56,7 +58,7 @@ async function liikunta() {
                     return vastaus.json();
                 }).
                 then(function (data) {
-                    let liikuntaPaikka = JSON.parse(data.contents);
+                    const liikuntaPaikka = JSON.parse(data.contents);
                     console.log(liikuntaPaikka);
                     lisaaKartalle(liikuntaPaikka.location.coordinates.wgs84.lon, liikuntaPaikka.location.coordinates.wgs84.lat, liikuntaPaikka.name);
                 });
@@ -64,7 +66,22 @@ async function liikunta() {
     }
 }
 
-// funktio, jonka avulla voi lisätä pisteitä kartalle
+// Funktio, joka hakee uimapaikat
+function vesisto() {
+    fetch('https://iot.fvh.fi/opendata/uiras/uiras-meta.json')
+        .then(function (vastaus) {
+            return vastaus.json();
+        })
+        .then(function (data) {
+            console.log(data);
+            for (const innerObject of Object.values(data)) {
+                lisaaKartalle(innerObject.lon, innerObject.lat, innerObject.name);
+            }
+        });
+
+}
+
+// Funktio, jonka avulla voi lisätä pisteitä kartalle
 function lisaaKartalle(longitude, latitude, nimi) {
     return L.marker([latitude, longitude]).
         addTo(map).bindPopup(nimi);
