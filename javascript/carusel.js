@@ -1,3 +1,4 @@
+//karuselli
 let slideIndex = 1;
 showSlides(slideIndex);
 
@@ -24,3 +25,14 @@ function showSlides(n) {
   slides[slideIndex - 1].style.display = "block";
   dots[slideIndex - 1].className += " active";
 }
+
+//taustakuvan vaihtoon
+const body = document.querySelector('body');
+const li = document.querySelectorAll('#menu li');
+
+li.forEach(el => {
+  el.addEventListener("mouseover", () => {
+    let bg = el.getAttribute("data-bg");
+    body.style.background = `url(${bg})no-repeat center /cover`;
+  })
+})
