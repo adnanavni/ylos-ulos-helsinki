@@ -76,36 +76,13 @@ body{
 
 #map {
     margin:auto;
-    width: 60%;
-    height:500px;
-}
-
-@media only screen and (max-width: 1184px) {
-    header h1 {
-        float: none;
-        margin: auto;
-        text-align: center;
-    }
-    #menu {
-        float:none;
-        margin: auto;
-        text-align: center;
-    }
-    #menu li {
-        margin: 0 50px;
-        padding-top: 10px;
-        padding-bottom: 10px;
-
-    }
-
+    width: 50%;
+    height:700px;
+    float: left;
 }
 
 
 
-body{
-    margin:0;
-}
-.container{
-    width: 100%;
-    margin: 0 auto;
-}
+
+
+
