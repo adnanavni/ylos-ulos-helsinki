@@ -147,7 +147,6 @@ header ::after {
     background-color: #717171;
   }
 
-
   .fade {
     -webkit-animation-name: fade;
     -webkit-animation-duration: 1.5s;
@@ -164,73 +163,3 @@ header ::after {
     from {opacity: .4}
     to {opacity: 1}
   }
-  
-@media only screen and (max-width: 1184px) {
-  header h1 {
-      float: none;
-      margin: auto;
-      text-align: center;
-      padding-left: 0;
-  }
-  #menu {
-      float:none;
-      margin: auto;
-      text-align: center;
-      padding:0;
-  }
-  #menu li {
-      margin: 0 50px;
-      padding-top: 10px;
-      padding-bottom: 10px;
-
-  }
-
-}
-@media only screen and (max-width: 560px) {
-  header h1 {
-      float: none;
-      margin: auto;
-      text-align: center;
-      padding-left: 0;
-      font-size: 40px;
-  }
-  #menu {
-      float:none;
-      margin: auto;
-      text-align: center;
-      padding: 0;
-  }
-  #menu li {
-      margin: 0 40px;
-      padding-top: 10px;
-      padding-bottom: 10px;
-  }
-  #menu a{
-      font-size: 20px;
-  }
-
-}
-
-@media only screen and (max-width: 450px) {
-  header h1 {
-      float: none;
-      margin: auto;
-      text-align: center;
-      font-size: 30px;
-  }
-  #menu {
-      float:none;
-      margin: auto;
-      text-align: center;
-  }
-  #menu li {
-      margin: 0 30px;
-      padding-top: 10px;
-      padding-bottom: 10px;
-
-  }
-  #menu a{
-      font-size: 17px;
-  }
-
-}

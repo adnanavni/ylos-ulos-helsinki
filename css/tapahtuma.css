@@ -4,10 +4,9 @@ header {
 
 }
 body{
-    background: url("../resources/helsinki2.jpg")no-repeat center /cover;
+    background: url("../resources/tapahtumat.jpg")no-repeat center /cover;
     width: 100%;
     transition: background 1s;
-    margin:0;
 }
 header h1 {
     font-size: 70px;
@@ -66,15 +65,28 @@ header ::after {
     width: 100%;
 }
 
+
+body{
+    margin:0;
+}
 .container{
     width: 100%;
     margin: 0 auto;
 }
 
 #map {
+    float:left;
     margin:auto;
-    float: left;
     width: 50%;
     height:700px;
-    border:double 10px white;
+    border-right:groove 10px;
+    border-color:darkred;
+}
+
+body{
+    margin:0;
+}
+.container{
+    width: 100%;
+    margin: 0 auto;
 }
