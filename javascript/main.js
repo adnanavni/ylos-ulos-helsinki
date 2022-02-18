@@ -68,14 +68,15 @@ async function liikunta() {
 
 // Funktio, joka hakee uimapaikat
 function vesisto() {
-    fetch('https://iot.fvh.fi/opendata/uiras/uiras-meta.json')
+    fetch('https://iot.fvh.fi/opendata/uiras/uiras2_v1.json')
         .then(function (vastaus) {
             return vastaus.json();
         })
         .then(function (data) {
             console.log(data);
-            for (const innerObject of Object.values(data)) {
-                lisaaKartalle(innerObject.lon, innerObject.lat, innerObject.name);
+            for (const innerObject of Object.values(data.sensors)) {
+                console.log(innerObject.meta.name, innerObject.data[0].temp_water);
+                lisaaKartalle(innerObject.meta.lon, innerObject.meta.lat, innerObject.meta.name, innerObject.data[0].temp_water);
             }
         });
 
