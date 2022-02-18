@@ -75,9 +75,12 @@ body{
 }
 
 #map {
+    float:left;
     margin:auto;
-    width: 60%;
-    height:500px;
+    width: 50%;
+    height:700px;
+    border-right:groove 10px;
+    border-color:deeppink;
 }
 
 @media only screen and (max-width: 1184px) {
@@ -85,11 +88,13 @@ body{
         float: none;
         margin: auto;
         text-align: center;
+        padding-left: 0;
     }
     #menu {
         float:none;
         margin: auto;
         text-align: center;
+        padding:0;
     }
     #menu li {
         margin: 0 50px;
@@ -99,7 +104,54 @@ body{
     }
 
 }
+@media only screen and (max-width: 560px) {
+    header h1 {
+        float: none;
+        margin: auto;
+        text-align: center;
+        padding-left: 0;
+        font-size: 40px;
+    }
+    #menu {
+        float:none;
+        margin: auto;
+        text-align: center;
+        padding: 0;
+    }
+    #menu li {
+        margin: 0 40px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    #menu a{
+        font-size: 20px;
+    }
 
+}
+
+@media only screen and (max-width: 450px) {
+    header h1 {
+        float: none;
+        margin: auto;
+        text-align: center;
+        font-size: 30px;
+    }
+    #menu {
+        float:none;
+        margin: auto;
+        text-align: center;
+    }
+    #menu li {
+        margin: 0 30px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+
+    }
+    #menu a{
+        font-size: 17px;
+    }
+
+}
 
 
 body{
