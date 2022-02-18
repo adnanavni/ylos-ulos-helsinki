@@ -7,16 +7,20 @@ body{
   background: url("../resources/helsinki2.jpg")no-repeat center /cover;
   width: 100%;
   transition: background 1s;
-
+    margin:0;
 }
 header h1 {
     font-size: 70px;
-    color: white;
+    color:white;
     float: left;
     padding-left: 20px;
     margin-left: 20px;
     /*font-family: 'Oswald', sans-serif;*/
     font-family: 'Bebas Neue', cursive;
+}
+header h1 a{
+    color:white;
+    text-decoration: none;
 }
 
 header ::after {
@@ -62,10 +66,6 @@ header ::after {
     width: 100%;
 }
 
-
-body{
-    margin:0;
-}
 .container{
     width: 100%;
     margin: 0 auto;
