@@ -79,7 +79,7 @@ body{
     margin:auto;
     width: 50%;
     height:700px;
-    border-right:groove 10px;
+    border:groove 10px;
     border-color:darkred;
 }
 

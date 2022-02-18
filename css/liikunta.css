@@ -75,12 +75,13 @@ body{
 }
 
 #map {
+    float:left;
     margin:auto;
     width: 50%;
     height:700px;
-    float: left;
+    border:groove 10px;
+    border-color:#161B33;
 }
-
 
 
 
