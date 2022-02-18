@@ -7,7 +7,7 @@ body{
   background: url("../resources/helsinki2.jpg")no-repeat center /cover;
   width: 100%;
   transition: background 1s;
-    margin:0;
+  margin:0;
 }
 header h1 {
     font-size: 70px;
@@ -70,9 +70,6 @@ header ::after {
     width: 100%;
     margin: 0 auto;
 }
-
-
-
 
 #map {
     width: 50%;
@@ -168,33 +165,73 @@ header ::after {
     from {opacity: .4}
     to {opacity: 1}
   }
-  @media only screen and (max-width: 1184px) {
-    header h1 {
+  
+@media only screen and (max-width: 1184px) {
+  header h1 {
       float: none;
       margin: auto;
       text-align: center;
+      padding-left: 0;
   }
   #menu {
-    float:none;
-    margin: auto;
-    text-align: center;
-}
-#menu li {
-  margin: 0 50px;
-  padding-top: 10px;
-  padding-bottom: 10px;
+      float:none;
+      margin: auto;
+      text-align: center;
+      padding:0;
+  }
+  #menu li {
+      margin: 0 50px;
+      padding-top: 10px;
+      padding-bottom: 10px;
+
+  }
 
 }
-  
+@media only screen and (max-width: 560px) {
+  header h1 {
+      float: none;
+      margin: auto;
+      text-align: center;
+      padding-left: 0;
+      font-size: 40px;
+  }
+  #menu {
+      float:none;
+      margin: auto;
+      text-align: center;
+      padding: 0;
+  }
+  #menu li {
+      margin: 0 40px;
+      padding-top: 10px;
+      padding-bottom: 10px;
+  }
+  #menu a{
+      font-size: 20px;
+  }
+
 }
 
+@media only screen and (max-width: 450px) {
+  header h1 {
+      float: none;
+      margin: auto;
+      text-align: center;
+      font-size: 30px;
+  }
+  #menu {
+      float:none;
+      margin: auto;
+      text-align: center;
+  }
+  #menu li {
+      margin: 0 30px;
+      padding-top: 10px;
+      padding-bottom: 10px;
 
+  }
+  #menu a{
+      font-size: 17px;
+  }
 
-body{
-    margin:0;
 }
-.container{
-    width: 100%;
-    margin: 0 auto;
-}
-  
