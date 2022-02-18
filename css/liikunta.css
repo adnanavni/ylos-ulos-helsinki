@@ -21,6 +21,7 @@ header h1 a{
     color:white;
     text-decoration: none;
 }
+
 header ::after {
     content:'';
     display:table;
