@@ -75,7 +75,8 @@ function vesisto() {
         .then(function (data) {
             console.log(data);
             for (const innerObject of Object.values(data.sensors)) {
-                console.log(innerObject.meta.name, innerObject.data[0].temp_water);
+                let x= innerObject.data.length -1;
+                console.log(innerObject.meta.name, innerObject.data[x].temp_water);
                 lisaaKartalle(innerObject.meta.lon, innerObject.meta.lat, innerObject.meta.name, innerObject.data[0].temp_water);
             }
         });
