@@ -4,7 +4,6 @@ header {
 
 }
 body{
-  background: url("../resources/helsinki2.jpg")no-repeat center /cover;
   width: 100%;
   transition: background 1s;
   margin:0;
