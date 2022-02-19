@@ -36,3 +36,8 @@ li.forEach(el => {
     body.style.background = `url(${bg})no-repeat center /cover`;
   })
 })
+li.forEach(el => {
+  el.addEventListener("mouseout", () => {
+    body.style.background = `url(./resources/helsinki2.jpg)no-repeat center /cover`;
+  })
+})
