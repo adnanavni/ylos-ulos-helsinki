@@ -29,6 +29,8 @@ function success(pos) {
 
     const uimaPaikat = document.getElementById('vesi');
     uimaPaikat.addEventListener('click', () => vesisto(), { once: true });
+
+    tapahtumat();
 }
 
 // Funktio, joka ajetaan, jos paikkatietojen hakemisessa tapahtuu virhe
@@ -75,12 +77,23 @@ function vesisto() {
         .then(function (data) {
             console.log(data);
             for (const innerObject of Object.values(data.sensors)) {
-                let x= innerObject.data.length -1;
+                let x = innerObject.data.length - 1;
                 console.log(innerObject.meta.name, innerObject.data[x].temp_water);
                 lisaaKartalle(innerObject.meta.lon, innerObject.meta.lat, innerObject.meta.name);
             }
         });
 
+}
+
+async function tapahtumat() {
+    const proxy = 'https://api.allorigins.win/get?url=';
+    const haku = 'http://open-api.myhelsinki.fi/swagger.json';
+    const url = proxy + encodeURIComponent(haku);
+
+    const vastaus = await fetch(url);
+    const data = await vastaus.json();
+    const tapahtumat = JSON.parse(data.contents);
+    console.log(tapahtumat);
 }
 
 // Funktio, jonka avulla voi lisätä pisteitä kartalle

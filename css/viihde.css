@@ -76,17 +76,19 @@ body{
 
 #map {
     float:left;
-    margin:auto;
-    width: 50%;
+    margin: 20px 20px;
+    width: 45%;
     height:700px;
     border:groove 10px;
     border-color:deeppink;
 }
 
-body{
-    margin:0;
-}
-.container{
-    width: 100%;
-    margin: 0 auto;
+#info {
+    float:right;
+    margin: 20px 20px;
+    height:700px;
+    border:groove 10px;
+    border-color:deeppink;
+    width: 45%;
+    background-color: white;
 }
