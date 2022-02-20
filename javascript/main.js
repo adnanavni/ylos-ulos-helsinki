@@ -96,6 +96,35 @@ async function tapahtumat() {
     console.log(tapahtumat);
 }
 
+//tapahtumien hakeminen avainsanalla
+const tapahtumaHaku = document.getElementById('hakukentta');
+const tapahtumaHakusana = document.getElementById('hakusana');
+const tapahtumaApi = 'https://api.hel.fi/linkedevents/v1/search/?type=event&q=';
+
+tapahtumaHaku.addEventListener('submit', function (evt){
+    evt.preventDefault();
+    let search = tapahtumaHakusana.value.split(' ').join('+');
+    let tapahtumat = '';
+    tapahtumat = tapahtumaApi + search;
+
+    function haku() {
+        fetch(tapahtumat).then(function(vastaus) {
+            return vastaus.json();
+        }).then(function(data) {
+            console.log(data);
+        })
+    }
+    haku();
+})
+
+
+
+
+
+
+
+
+
 // Funktio, jonka avulla voi lisätä pisteitä kartalle
 function lisaaKartalle(longitude, latitude, nimi) {
     return L.marker([latitude, longitude]).
