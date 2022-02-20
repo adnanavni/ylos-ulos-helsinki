@@ -3,24 +3,28 @@ header {
     background-color:#161B33;
 
 }
+
 body{
   width: 100%;
   transition: background 1s;
   margin:0;
+  font-family: oswald;
 }
+
 header h1 {
     font-size: 70px;
     color:white;
     float: left;
     padding-left: 20px;
     margin-left: 20px;
-    /*font-family: 'Oswald', sans-serif;*/
     font-family: 'Bebas Neue', cursive;
 }
+
 header h1 a{
     color:white;
     text-decoration: none;
 }
+
 h4{
     color: deeppink;
 }
@@ -30,20 +34,24 @@ header ::after {
     display:table;
     clear: both;
 }
+
 #menu {
     float:right;
 }
+
 #menu ul {
     margin: 0;
     padding: 0;
     list-style: none;
 }
+
 #menu li {
     display: inline-block;
     margin: 0 50px;
     padding-top: 70px;
     position:relative;
 }
+
 #menu a {
     color: white;
     font-family: 'Bebas Neue', cursive;
@@ -51,9 +59,11 @@ header ::after {
     text-transform: uppercase;
     font-size: 30px;
 }
+
 #menu a:hover {
     color: white;
 }
+
 #menu a::before{
     content:'';
     display: block;
@@ -64,6 +74,7 @@ header ::after {
     transition: all ease-in-out 100ms;
     background-color: white;
 }
+
 #menu a:hover::before{
     width: 100%;
 }
@@ -73,59 +84,58 @@ header ::after {
     margin: 0 auto;
 }
 
-#map {
+#video, #saa, #artikkeli {
     width: 50%;
     height: 500px;
     margin: auto;
-  }
-  #liikunta{
-    margin: auto;
-  }
-  * {box-sizing:border-box}
-
-  .slideshow-container {
-    max-width: 1000px;
-    position: relative;
-    margin: auto;
-  }
-
-  .mySlides {
-    display: none;
-  }
-
-  .prev, .next {
-    cursor: pointer;
-    position: absolute;
-    top: 50%;
-    width: auto;
-    margin-top: -22px;
-    padding: 16px;
-    color: black;
-    font-weight: bold;
-    font-size: 18px;
-    transition: 0.6s ease;
-    border-radius: 0 3px 3px 0;
-    user-select: none;
-  }
-
-  .next {
-    right: 0;
-    border-radius: 3px 0 0 3px;
-  }
-
-  .prev:hover, .next:hover {
-    background-color: rgba(0,0,0,0.8);
-  }
-
-  .text {
-    color: #f2f2f2;
-    font-size: 15px;
-    padding: 8px 12px;
-    position: absolute;
-    bottom: 8px;
-    width: 100%;
+    background-color: rgba(255, 255, 255, 0.600);
+    color:#161B33;
     text-align: center;
   }
+  
+.slideshow-container {
+  max-width: 1000px;
+  position: relative;
+  margin: auto;
+}
+
+.mySlides {
+  display: none;
+}
+
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  margin-top: -22px;
+  padding: 16px;
+  color: rgb(255, 255, 255);
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+.text {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
+}
 
   .numbertext {
     color: #f2f2f2;
@@ -140,14 +150,14 @@ header ::after {
     height: 15px;
     width: 15px;
     margin: 0 2px;
-    background-color: #bbb;
+    background-color: rgb(255, 255, 255);
     border-radius: 50%;
     display: inline-block;
     transition: background-color 0.6s ease;
   }
 
   .active, .dot:hover {
-    background-color: #717171;
+    background-color: #000000;
   }
 
   .fade {

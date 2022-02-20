@@ -20,38 +20,40 @@
     </nav>
   </header>
 <main>
-<div class="slideshow-container">
+<section class="slideshow-container">
 
-  <div class="mySlides fade">
-    <div id="map"></div>
-    <button id="liikunta">Liikunta</button>
-    <br>
-    <button id="vesi">Uimapaikat</button>
-  </div>
+  <article class="mySlides fade">
+    <div id="artikkeli">
+      <h2>Helsinki</h2>
+      <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+    </div>
+  </article>
 
-  <div class="mySlides fade">
-    <div id="map"></div>
-  </div>
+  <article class="mySlides fade">
+    <div id="saa">
+      <p>Tähän sivulle tulee sää!</p>
+    </div>
+  </article>
 
-  <div class="mySlides fade">
-<div id="map"></div>
-  </div>
+  <article class="mySlides fade">
+    <div id="video">
+      <p>Tähän sivulle video!</p>
+    </div>
+  </article>
 
   <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
   <a class="next" onclick="plusSlides(1)">&#10095;</a>
-</div>
+</section>
 <br>
 
-<div style="text-align:center">
+<section style="text-align:center">
   <span class="dot" onclick="currentSlide(1)"></span>
   <span class="dot" onclick="currentSlide(2)"></span>
   <span class="dot" onclick="currentSlide(3)"></span>
-</div>
+</section>
   <h4><span id="visits"></span></h4>
 </main>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.js"></script>
-<script src="./javascript/main.js"></script>
 <script src="./javascript/carusel.js"></script>
-  <script async src="https://api.countapi.xyz/hit/ylosuloshki/7b56fb76-fffb-4114-94c5-585c326396a2?callback=websiteVisits"> </script>
+<script async src="https://api.countapi.xyz/hit/ylosuloshki/7b56fb76-fffb-4114-94c5-585c326396a2?callback=websiteVisits"> </script>
 </body>
 </html>
