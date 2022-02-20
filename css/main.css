@@ -21,6 +21,9 @@ header h1 a{
     color:white;
     text-decoration: none;
 }
+h4{
+    color: deeppink;
+}
 
 header ::after {
     content:'';
