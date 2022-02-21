@@ -20,16 +20,20 @@ tapahtumaHaku.addEventListener('submit', function (evt) {
     fetch(tapahtumat).then(function (vastaus) {
         return vastaus.json();
     }).then(function (data) {
-        hakuInfo(data);
-        seuraavaNappi.addEventListener('click', () => hakuInfo(data));
-        edellinenNappi.addEventListener('click', () => hakuInfoNeg(data));
+        for (let numero = 0; numero < data.data.length; numero++) {
+            console.log(numero);
+            console.log(data.data[numero].name.fi);
+        }
+        hakuInfo(data, [indeksi]);
+        seuraavaNappi.addEventListener('click', () => hakuInfo(data, [indeksi]));
+        edellinenNappi.addEventListener('click', () => hakuInfoNeg(data, [indeksi]));
     }).catch(function (error) {
         console.log(error);
     });
 });
 
 // Funktio, joka tulostaa infoboxiin haun ekan tapahtuman, napista seuraavan
-function hakuInfo(data) {
+function hakuInfo(data, [n]) {
     while (info.firstChild) {
         info.removeChild(info.firstChild);
     }
@@ -37,26 +41,26 @@ function hakuInfo(data) {
     info.appendChild(a);
 
     const tulokset = document.createElement('p');
-    tulokset.textContent = `Tuloksia jäljellä: ${data.data.length - indeksi - 1} `;
+    tulokset.textContent = `Tuloksia jäljellä: ${data.data.length - indeksi} `;
     a.appendChild(tulokset);
 
     const nimi = document.createElement('h2');
-    nimi.textContent = 'Tapahtuma: ' + data.data[indeksi].name.fi;
+    nimi.textContent = 'Tapahtuma: ' + data.data[n].name.fi;
     a.appendChild(nimi);
 
     const pvm = document.createElement('p');
-    pvm.textContent = new Date(data.data[indeksi].start_time);
+    pvm.textContent = new Date(data.data[n].start_time);
     a.appendChild(pvm);
 
-    if (data.data[indeksi].short_description = ! null) {
+    if (data.data[n].short_description != null) {
         const description = document.createElement('p');
-        description.innerHTML = data.data[indeksi].short_description.fi;
+        description.innerHTML = data.data[n].short_description.fi;
         a.appendChild(description);
     }
 
-    if (data.data[indeksi].info_url != null) {
+    if (data.data[n].info_url != null) {
         const url = document.createElement('a');
-        url.href = data.data[indeksi].info_url.fi
+        url.href = data.data[n].info_url.fi
         url.textContent = 'Lisää tietoa täältä!';
         a.appendChild(url);
     }
@@ -66,7 +70,8 @@ function hakuInfo(data) {
 }
 
 // Funktio, joka tulostaa infoboxiin haun ekan tapahtuman, napista edellisen
-function hakuInfoNeg(data) {
+function hakuInfoNeg(data, [n]) {
+
     while (info.firstChild) {
         info.removeChild(info.firstChild);
     }
@@ -74,30 +79,29 @@ function hakuInfoNeg(data) {
     info.appendChild(a);
 
     const tulokset = document.createElement('p');
-    tulokset.textContent = `Tuloksia jäljellä: ${data.data.length - indeksi + 1} `;
+    tulokset.textContent = `Tuloksia jäljellä: ${data.data.length - indeksi} `;
     a.appendChild(tulokset);
 
     const nimi = document.createElement('h2');
-    nimi.textContent = 'Tapahtuma: ' + data.data[indeksi].name.fi;
+    nimi.textContent = 'Tapahtuma: ' + data.data[n].name.fi;
     a.appendChild(nimi);
 
     const pvm = document.createElement('p');
-    pvm.textContent = new Date(data.data[indeksi].start_time);
+    pvm.textContent = new Date(data.data[n].start_time);
     a.appendChild(pvm);
 
-    if (data.data[indeksi].short_description = ! null) {
+    if (data.data[indeksi].short_description != null) {
         const description = document.createElement('p');
-        description.innerHTML = data.data[indeksi].short_description.fi;
+        description.innerHTML = data.data[n].short_description.fi;
         a.appendChild(description);
     }
 
     if (data.data[indeksi].info_url != null) {
         const url = document.createElement('a');
-        url.href = data.data[indeksi].info_url.fi
+        url.href = data.data[n].info_url.fi
         url.textContent = 'Lisää tietoa täältä!';
         a.appendChild(url);
     }
-
     indeksi--;
 }
 
