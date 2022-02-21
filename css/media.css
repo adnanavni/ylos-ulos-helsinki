@@ -65,5 +65,7 @@
     #menu a{
         font-size: 17px;
     }
-  
+  footer p{
+      margin:6%;
+  }
   }

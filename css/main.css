@@ -176,3 +176,35 @@ header ::after {
     from {opacity: .4}
     to {opacity: 1}
   }
+footer {
+    background-color: rgba(22,	27 , 51, 0.95);
+    color:white;
+    margin-top: 10%;
+}
+footer p{
+    float:left;
+    margin: 2%;
+}
+#somet {
+    list-style: none;
+    margin-bottom: auto;
+}
+#somet li {
+    display: inline-block;
+    margin: 0;
+    padding-top: 0.5%;
+    padding-bottom: 1.5%;
+    position: relative;
+}
+#somet ul {
+    margin: 0 auto;
+    padding: 0;
+    list-style: none;
+}
+#somet a{
+    display: inline-block;
+    margin: 0 10px;
+    padding-top: 20px;
+    padding-bottom: 10px;
+    position:relative;
+    }
