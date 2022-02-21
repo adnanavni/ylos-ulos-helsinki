@@ -1,0 +1,116 @@
+'use strict';
+
+const info = document.getElementById('info');
+
+// Nappia painaessa liikuntapaikat ilmestyvät funktion kautta kartalle
+const liikuntaNappi = document.getElementById('liikunta');
+liikuntaNappi.addEventListener('click', () => liikunta(), { once: true });
+
+// Nappia painaessa uimapaikat ilmestyvät funktion kautta kartalle
+const uimaNappi = document.getElementById('vesi');
+uimaNappi.addEventListener('click', () => uimaPaikat(), { once: true });
+
+// Funktio joka hakee ensin Helsingin alueelta sportsPlaceId:t, joiden avulla hakee myöhemmin tietoja liikuntapaikasta
+// Kartasta painaessa muodostaa elementtejä jotta informaatio APIsta ilmestyisi sivulle
+async function liikunta() {
+    const proxy = 'https://api.allorigins.win/get?url=';
+    const haku = 'http://lipas.cc.jyu.fi/api/sports-places?searchString=helsinki';
+    const url = proxy + encodeURIComponent(haku);
+
+
+    const vastaus = await fetch(url);
+    const data = await vastaus.json();
+    const liikuntaPaikkaId = JSON.parse(data.contents);
+    liikuntaKartalle(liikuntaPaikkaId);
+
+    function liikuntaKartalle(data) {
+        for (let i = 0; i < data.length; i++) {
+            fetch('https://api.allorigins.win/get?url=http://lipas.cc.jyu.fi/api/sports-places/' + data[i].sportsPlaceId)
+                .then(function (vastaus) {
+                    return vastaus.json();
+                }).
+                then(function (data) {
+                    const liikuntaPaikka = JSON.parse(data.contents);
+                    lisaaKartalle(liikuntaPaikka.location.coordinates.wgs84.lon, liikuntaPaikka.location.coordinates.wgs84.lat, liikuntaPaikka.name)
+                        .on('click', function () {
+
+                            while (info.firstChild) {
+                                info.removeChild(info.firstChild)
+                            }
+
+                            const nimi = document.createElement('h3');
+                            nimi.textContent = liikuntaPaikka.name;
+                            info.appendChild(nimi);
+
+                            const tyyppi = document.createElement('p');
+                            tyyppi.textContent = 'Tyyppi:' + liikuntaPaikka.type.name;
+                            info.appendChild(tyyppi);
+
+                            if (liikuntaPaikka.email != undefined) {
+                                const sposti = document.createElement('p');
+                                sposti.textContent = 'Sähköposti: ' + liikuntaPaikka.email;
+                                info.appendChild(sposti);
+                            }
+
+                            if (liikuntaPaikka.phoneNumber != undefined) {
+                                const puh = document.createElement('p');
+                                puh.textContent = 'Puhelinnumero: ' + liikuntaPaikka.phoneNumber;
+                                info.appendChild(puh);
+                            }
+
+                            const osoite = document.createElement('p');
+                            osoite.textContent = 'Osoite: ' + liikuntaPaikka.location.address;
+                            info.appendChild(osoite);
+
+                            const linkki = document.createElement('a');
+                            linkki.href = liikuntaPaikka.www;
+                            linkki.textContent = liikuntaPaikka.www;
+                            info.appendChild(linkki);
+                        });
+                }).catch(function (err) {
+                    console.log(err);
+                });
+        }
+    }
+}
+
+// Funktio, joka hakee uimapaikat
+// Kartasta painaessa muodostaa elementtejä jotta informaatio APIsta ilmestyisi sivulle
+function uimaPaikat() {
+    fetch('https://iot.fvh.fi/opendata/uiras/uiras2_v1.json')
+        .then(function (vastaus) {
+            return vastaus.json();
+        })
+        .then(function (data) {
+            console.log(data);
+            for (const innerObject of Object.values(data.sensors)) {
+                let x = innerObject.data.length - 1;
+                console.log(innerObject);
+                lisaaKartalle(innerObject.meta.lon, innerObject.meta.lat, innerObject.meta.name)
+                    .on('click', function () {
+
+                        while (info.firstChild) {
+                            info.removeChild(info.firstChild)
+                        }
+
+                        const nimi = document.createElement('h3');
+                        nimi.textContent = innerObject.meta.name;
+                        info.appendChild(nimi);
+
+                        const lampotila = document.createElement('p');
+                        lampotila.textContent = 'Vedenlämpötila: ' + innerObject.data[x].temp_water + ' °C';
+                        info.appendChild(lampotila);
+
+                        if (innerObject.meta.site_url != "") {
+                            const linkki = document.createElement('a');
+                            linkki.href = innerObject.meta.site_url;
+                            linkki.textContent = innerObject.meta.site_url;
+                            info.appendChild(linkki);
+                        }
+                    });
+            }
+        }).catch(function (err) {
+            console.log(err);
+        });
+
+}

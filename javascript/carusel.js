@@ -41,8 +41,9 @@ li.forEach(el => {
     body.style.background = `url(./resources/helsinki2.jpg)no-repeat center /cover`;
   })
 })
+
 //käyntilaskuri
-function websiteVisits(response){
+function websiteVisits(response) {
   document.querySelector("#visits").textContent = response.value;
 
 }

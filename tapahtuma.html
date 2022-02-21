@@ -10,6 +10,7 @@
 </head>
 
 <body>
+    
     <header class="container">
         <nav>
             <h1><a href="index.html">¡ Ylös - Ulos - Helsinki !</a></h1>
@@ -20,16 +21,23 @@
             </ul>
             </nav>
     </header>
-<main>
-    
+
+<main>   
     <div id="map"></div>
-    <div id="info"><form id="hakukentta">
+    <form id="hakukentta">
         <input type="text" placeholder="Hae tapahtumaa" id="hakusana">
         <button type="submit"><i class="fas fa-search" id="hae"></i>Hae</button>
-    </form></div>
+    </form>
+    <button id="tapahtumatTanaan">Tapahtumat tänään!</button>
+    <div id="info">
+        <h2>Tiedot tapahtumista: </h2>
+    </div>
+    <button id="seuraava">Seuraava</button>
+</main>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.js"></script>
     <script src="./javascript/main.js"></script>
-   </div>
-</main>
+    <script src="./javascript/tapahtumat.js"></script>
+
 </body>
 </html>
