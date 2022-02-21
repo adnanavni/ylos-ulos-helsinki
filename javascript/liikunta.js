@@ -66,6 +66,19 @@ async function liikunta() {
                             linkki.href = liikuntaPaikka.www;
                             linkki.textContent = liikuntaPaikka.www;
                             info.appendChild(linkki);
+                            navigator.geolocation.getCurrentPosition(success, error, options);
+                            function success(pos) {
+                            const crd = pos.coords;
+                            L.Routing.control({
+                                waypoints: [
+                                    L.latLng(crd.latitude, crd.longitude),
+                                    L.latLng(liikuntaPaikka.location.coordinates.wgs84.lat,liikuntaPaikka.location.coordinates.wgs84.lon)
+                                   
+                                ]
+                            }).addTo(map);
+                             
+                            }
+
                         });
                 }).catch(function (err) {
                     console.log(err);
