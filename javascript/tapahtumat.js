@@ -48,9 +48,17 @@ function hakuInfo(data) {
     pvm.textContent = new Date(data.data[indeksi].start_time);
     a.appendChild(pvm);
 
-    const description = document.createElement('div');
-    description.innerHTML = data.data[indeksi].description.fi;
+    const description = document.createElement('p');
+    description.innerHTML = data.data[indeksi].short_description.fi;
     a.appendChild(description);
+
+    if (data.data[indeksi].info_url != null) {
+        const url = document.createElement('a');
+        url.href = data.data[indeksi].info_url.fi
+        url.textContent = 'Lisää tietoa täältä!';
+        a.appendChild(url);
+    }
+
 
     indeksi++;
 }
@@ -75,9 +83,16 @@ function hakuInfoNeg(data) {
     pvm.textContent = new Date(data.data[indeksi].start_time);
     a.appendChild(pvm);
 
-    const description = document.createElement('div');
-    description.innerHTML = data.data[indeksi].description.fi;
+    const description = document.createElement('p');
+    description.innerHTML = data.data[indeksi].short_description.fi;
     a.appendChild(description);
+
+    if (data.data[indeksi].info_url != null) {
+        const url = document.createElement('a');
+        url.href = data.data[indeksi].info_url.fi
+        url.textContent = 'Lisää tietoa täältä!';
+        a.appendChild(url);
+    }
 
     indeksi--;
 }
@@ -124,7 +139,7 @@ function tanaanInfo(data) {
     pvm.textContent = new Date(data[i].event_dates.starting_day);
     a.appendChild(pvm);
 
-    const description = document.createElement('div');
+    const description = document.createElement('p');
     description.innerHTML = data[i].description.intro;
     a.appendChild(description);
 
@@ -156,7 +171,7 @@ function tanaanInfoNeg(data) {
     pvm.textContent = new Date(data[i].event_dates.starting_day);
     a.appendChild(pvm);
 
-    const description = document.createElement('div');
+    const description = document.createElement('p');
     description.innerHTML = data[i].description.body;
     a.appendChild(description);
 
