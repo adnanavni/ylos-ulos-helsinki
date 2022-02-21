@@ -90,5 +90,21 @@ body{
     border:groove 10px;
     border-color:darkred;
     width: 45%;
-    background-color: white;
+    background-color: rgba(255, 255, 255, 0.603);
+    text-align: center;
+}
+
+form {
+    margin: 10px;
+    text-align: center;
+}
+
+#napit{
+    text-align: center;
+}
+
+button {
+    background-color: darkred;
+    color: white;
+    border: groove 2px;
 }

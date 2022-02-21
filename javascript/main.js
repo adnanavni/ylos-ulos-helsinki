@@ -40,7 +40,7 @@ function lisaaKartalle(longitude, latitude, nimi) {
         addTo(map).bindPopup(nimi);
 }
 
-//Funktio, joka selvittää päivämäärän
+//Funktio, joka selvittää onko annettun parametrin päivämäärä 24 tunnin sisällä
 function pvm(a) {
     const today = new Date()
     const ms = Math.abs(today.getTime() - a.getTime())
