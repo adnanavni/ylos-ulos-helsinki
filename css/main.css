@@ -8,7 +8,7 @@ body{
   width: 100%;
   transition: background 1s;
   margin:0;
-  font-family: oswald;
+  font-family: 'Oswald', sans-serif;;
 }
 
 header h1 {
@@ -88,9 +88,10 @@ header ::after {
     width: 50%;
     height: 500px;
     margin: auto;
-    background-color: rgba(255, 255, 255, 0.600);
+    background-color: rgba(255, 255, 255, 0.80);
     color:#161B33;
     text-align: center;
+    font-size: 22px;
   }
   
 .slideshow-container {
@@ -183,7 +184,9 @@ footer {
 }
 footer p{
     float:left;
-    margin: 2%;
+    margin: 1%;
+    padding-top: 20px;
+    padding-bottom: 10px;
 }
 #somet {
     list-style: none;
@@ -203,7 +206,8 @@ footer p{
 }
 #somet a{
     display: inline-block;
-    margin: 0 10px;
+    margin-left: 0;
+    padding-left: 10px;
     padding-top: 20px;
     padding-bottom: 10px;
     position:relative;
