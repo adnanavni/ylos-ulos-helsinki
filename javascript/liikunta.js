@@ -66,17 +66,40 @@ async function liikunta() {
                             linkki.href = liikuntaPaikka.www;
                             linkki.textContent = liikuntaPaikka.www;
                             info.appendChild(linkki);
-                            navigator.geolocation.getCurrentPosition(success, error, options);
-                            function success(pos) {
-                            const crd = pos.coords;
-                            L.Routing.control({
-                                waypoints: [
-                                    L.latLng(crd.latitude, crd.longitude),
-                                    L.latLng(liikuntaPaikka.location.coordinates.wgs84.lat,liikuntaPaikka.location.coordinates.wgs84.lon)
-                                   
-                                ]
-                            }).addTo(map);
-                             
+                            const btn = document.createElement('button');
+                            btn.textContent = "Näytä reitti";
+                            btn.setAttribute("id","navb");
+                            btn.onclick= function () {
+                                navigator.geolocation.getCurrentPosition(success, error, options);
+                                function success(pos) {
+                                const crd = pos.coords;
+                                L.Routing.control({
+                                    waypoints: [
+                                        L.latLng(crd.latitude, crd.longitude),
+                                        L.latLng(liikuntaPaikka.location.coordinates.wgs84.lat,liikuntaPaikka.location.coordinates.wgs84.lon)
+                                       
+                                    ]
+                                }).addTo(map);
+                                 
+                                }
+                            }
+                           // btn.setAttribute("onclick",navigointi());
+                            const br = document.createElement('br');
+                            info.appendChild(br);
+                            info.appendChild(btn);
+                            function navigointi() {
+                                navigator.geolocation.getCurrentPosition(success, error, options);
+                                function success(pos) {
+                                const crd = pos.coords;
+                                L.Routing.control({
+                                    waypoints: [
+                                        L.latLng(crd.latitude, crd.longitude),
+                                        L.latLng(liikuntaPaikka.location.coordinates.wgs84.lat,liikuntaPaikka.location.coordinates.wgs84.lon)
+                                       
+                                    ]
+                                }).addTo(map);
+                                 
+                                }
                             }
 
                         });

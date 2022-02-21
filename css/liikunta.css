@@ -94,9 +94,15 @@ body{
     text-align: center;
 }
 
-button{
+.yeet{
     position:absolute;
     margin: 350px 22px;
+    text-align: center;
+    background-color: #161B33; 
+    color: white;
+    border: groove 2px;
+}
+#navb{
     text-align: center;
     background-color: #161B33; 
     color: white;
