@@ -48,9 +48,11 @@ function hakuInfo(data) {
     pvm.textContent = new Date(data.data[indeksi].start_time);
     a.appendChild(pvm);
 
-    const description = document.createElement('p');
-    description.innerHTML = data.data[indeksi].short_description.fi;
-    a.appendChild(description);
+    if (data.data[indeksi].short_description = ! null) {
+        const description = document.createElement('p');
+        description.innerHTML = data.data[indeksi].short_description.fi;
+        a.appendChild(description);
+    }
 
     if (data.data[indeksi].info_url != null) {
         const url = document.createElement('a');
@@ -83,9 +85,11 @@ function hakuInfoNeg(data) {
     pvm.textContent = new Date(data.data[indeksi].start_time);
     a.appendChild(pvm);
 
-    const description = document.createElement('p');
-    description.innerHTML = data.data[indeksi].short_description.fi;
-    a.appendChild(description);
+    if (data.data[indeksi].short_description = ! null) {
+        const description = document.createElement('p');
+        description.innerHTML = data.data[indeksi].short_description.fi;
+        a.appendChild(description);
+    }
 
     if (data.data[indeksi].info_url != null) {
         const url = document.createElement('a');
