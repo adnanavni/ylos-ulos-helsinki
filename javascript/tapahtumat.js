@@ -3,8 +3,6 @@
 const info = document.getElementById('info');
 const seuraavaNappi = document.getElementById('seuraava');
 const edellinenNappi = document.getElementById('edellinen');
-let indeksi = 0;
-let i = 0;
 
 // Tapahtumien hakeminen avainsanalla
 const tapahtumaHaku = document.getElementById('hakukentta');
@@ -20,20 +18,22 @@ tapahtumaHaku.addEventListener('submit', function (evt) {
     fetch(tapahtumat).then(function (vastaus) {
         return vastaus.json();
     }).then(function (data) {
-        for (let numero = 0; numero < data.data.length; numero++) {
-            console.log(numero);
-            console.log(data.data[numero].name.fi);
+
+        console.log(data);
+
+        for (let i = 0; i < data.data.length; i) {
+            hakuInfo(data);
         }
-        hakuInfo(data, [indeksi]);
-        seuraavaNappi.addEventListener('click', () => hakuInfo(data, [indeksi]));
-        edellinenNappi.addEventListener('click', () => hakuInfoNeg(data, [indeksi]));
+
     }).catch(function (error) {
         console.log(error);
     });
 });
 
 // Funktio, joka tulostaa infoboxiin haun ekan tapahtuman, napista seuraavan
-function hakuInfo(data, [n]) {
+function hakuInfo(tata, [i]) {
+    const data = tata.data[i];
+
     while (info.firstChild) {
         info.removeChild(info.firstChild);
     }
@@ -41,32 +41,29 @@ function hakuInfo(data, [n]) {
     info.appendChild(a);
 
     const tulokset = document.createElement('p');
-    tulokset.textContent = `Tuloksia jäljellä: ${data.data.length - indeksi} `;
+    tulokset.textContent = `Tuloksia jäljellä: ${data.length - i}`;
     a.appendChild(tulokset);
 
     const nimi = document.createElement('h2');
-    nimi.textContent = 'Tapahtuma: ' + data.data[n].name.fi;
+    nimi.textContent = 'Tapahtuma: ' + data.name.fi;
     a.appendChild(nimi);
 
     const pvm = document.createElement('p');
-    pvm.textContent = new Date(data.data[n].start_time);
+    pvm.textContent = new Date(data.start_time);
     a.appendChild(pvm);
 
-    if (data.data[n].short_description != null) {
+    if (data.short_description != null) {
         const description = document.createElement('p');
-        description.innerHTML = data.data[n].short_description.fi;
+        description.innerHTML = data.short_description.fi;
         a.appendChild(description);
     }
 
-    if (data.data[n].info_url != null) {
+    if (data.info_url != null) {
         const url = document.createElement('a');
-        url.href = data.data[n].info_url.fi
+        url.href = data.info_url.fi
         url.textContent = 'Lisää tietoa täältä!';
         a.appendChild(url);
     }
-
-
-    indeksi++;
 }
 
 // Funktio, joka tulostaa infoboxiin haun ekan tapahtuman, napista edellisen
@@ -79,7 +76,7 @@ function hakuInfoNeg(data, [n]) {
     info.appendChild(a);
 
     const tulokset = document.createElement('p');
-    tulokset.textContent = `Tuloksia jäljellä: ${data.data.length - indeksi} `;
+    tulokset.textContent = `Tuloksia jäljellä: ${data.data.length + n}`;
     a.appendChild(tulokset);
 
     const nimi = document.createElement('h2');
@@ -105,7 +102,7 @@ function hakuInfoNeg(data, [n]) {
     indeksi--;
 }
 
-const todayEvents = document.getElementById('tapahtumatTanaan')
+const todayEvents = document.getElementById('tapahtumat')
 todayEvents.addEventListener('click', () => tapahtumatTanaan(), { once: true });
 
 //Funktio, joka hakee tämänpäiväiset tapahtumat
@@ -119,18 +116,13 @@ async function tapahtumatTanaan() {
     const tapahtumat = JSON.parse(data.contents);
     const jarjestys = tapahtumat.data.filter(a => a.event_dates.starting_day && new Date().getTime() < new Date(a.event_dates.starting_day)
         .getTime()).sort((a, b) => new Date(a.event_dates.starting_day) - new Date(b.event_dates.starting_day));
-
-    tanaanInfo(jarjestys);
-    seuraavaNappi.addEventListener('click', () => tanaanInfo(jarjestys));
-    edellinenNappi.addEventListener('click', () => tanaanInfoNeg(jarjestys));
-
+    console.log(jarjestys)
     for (let i = 0; i < 100; i++) {
-        lisaaKartalle(jarjestys[i].location.lon, jarjestys[i].location.lat, jarjestys[i].name.fi).on('click', () => tanaanInfo(jarjestys));
+        lisaaKartalle(jarjestys[i].location.lon, jarjestys[i].location.lat, jarjestys[i].name.fi).on('click', () => tanaanInfo(jarjestys[i]));
     }
-
 }
 
-// Funktio, joka tulostaa infoboxiin tiedot tapahtumasta, lisää myös kartalle sijainnin, napista seuraavan tapahtuman tiedot
+// Funktio, joka tulostaa infoboxiin tiedot tapahtumasta
 function tanaanInfo(data) {
     while (info.firstChild) {
         info.removeChild(info.firstChild);
@@ -140,54 +132,21 @@ function tanaanInfo(data) {
     info.appendChild(a);
 
     const nimi = document.createElement('h2');
-    nimi.textContent = 'Tapahtuma: ' + data[i].name.fi;
+    nimi.textContent = 'Tapahtuma: ' + data.name.fi;
     a.appendChild(nimi);
 
     const pvm = document.createElement('p');
-    pvm.textContent = new Date(data[i].event_dates.starting_day);
+    pvm.textContent = new Date(data.event_dates.starting_day);
     a.appendChild(pvm);
 
     const description = document.createElement('p');
-    description.innerHTML = data[i].description.intro;
+    description.innerHTML = data.description.intro;
     a.appendChild(description);
 
-    if (data[i].info_url != null) {
+    if (data.info_url != null) {
         const url = document.createElement('a')
-        url.href = data[i].info_url
+        url.href = data.info_url
         url.textContent = 'Lisää tietoa täältä!'
         a.appendChild(url);
     }
-    i++;
-
-}
-
-// Funktio, joka tulostaa infoboxiin tiedot tapahtumasta, lisää myös kartalle sijainnin, napista edellisen tapahtuman tiedot
-function tanaanInfoNeg(data) {
-    if (i >= 0 && i <= data.length)
-        while (info.firstChild) {
-            info.removeChild(info.firstChild);
-        }
-
-    const a = document.createElement('article');
-    info.appendChild(a);
-
-    const nimi = document.createElement('h2');
-    nimi.textContent = 'Tapahtuma: ' + data[i].name.fi;
-    a.appendChild(nimi);
-
-    const pvm = document.createElement('p');
-    pvm.textContent = new Date(data[i].event_dates.starting_day);
-    a.appendChild(pvm);
-
-    const description = document.createElement('p');
-    description.innerHTML = data[i].description.body;
-    a.appendChild(description);
-
-    if (data[i].info_url != null) {
-        const url = document.createElement('a')
-        url.href = data[i].info_url
-        url.textContent = 'Lisää tietoa täältä!'
-        a.appendChild(url);
-    }
-    i--;
 }
