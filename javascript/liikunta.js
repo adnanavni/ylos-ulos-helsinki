@@ -137,15 +137,34 @@ function uimaPaikat() {
                         const lampotila = document.createElement('p');
                         lampotila.textContent = 'Vedenlämpötila: ' + innerObject.data[x].temp_water + ' °C';
                         info.appendChild(lampotila);
-
+                        const btn = document.createElement('button');
+                        btn.textContent = "Näytä reitti";
+                        btn.setAttribute("id", "navb");
+                        info.appendChild(btn);
                         if (innerObject.meta.site_url != "") {
                             const linkki = document.createElement('a');
                             linkki.href = innerObject.meta.site_url;
                             linkki.textContent = innerObject.meta.site_url;
                             info.appendChild(linkki);
                         }
+                        
+                        btn.onclick = function unav () {
+                        navigator.geolocation.getCurrentPosition(success, error, options);
+                        function success(pos) {
+                            const crd = pos.coords;
+                            L.Routing.control({  
+                                waypoints: [
+                                    L.latLng(crd.latitude, crd.longitude),
+                                    L.latLng(innerObject.meta.lat, innerObject.meta.lon)
+        
+                                ], router: L.Routing.mapbox('sk.eyJ1IjoibW9pa29ubmEiLCJhIjoiY2t6eTZjMGtlMDhqejJvcGNzanEwcDZhayJ9.an_sHh9hmXUePnTLrVzyFA')
+                            }).addTo(map);
+        
+                        }
+                    }
                     });
             }
+
         }).catch(function (err) {
             console.log(err);
         });
