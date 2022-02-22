@@ -7,6 +7,7 @@ body{
     background: url("../resources/tapahtumat.jpg")no-repeat center /cover;
     width: 100%;
     transition: background 1s;
+    margin:0;
 }
 header h1 {
     font-size: 70px;
@@ -65,13 +66,13 @@ header ::after {
     width: 100%;
 }
 
-
-body{
-    margin:0;
-}
 .container{
     width: 100%;
     margin: 0 auto;
+}
+
+main{
+    display: flex;
 }
 
 #map {
@@ -99,8 +100,8 @@ form {
     text-align: center;
 }
 
-#napit{
-    text-align: center;
+#tapahtumat{
+    margin: 20px 20px;
 }
 
 button {
