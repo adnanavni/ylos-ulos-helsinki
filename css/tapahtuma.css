@@ -73,6 +73,7 @@ header ::after {
 
 main{
     display: flex;
+    font-family: 'Oswald', sans-serif;
 }
 
 #map {

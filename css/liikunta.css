@@ -21,6 +21,9 @@ header h1 a{
     color:white;
     text-decoration: none;
 }
+main{
+    font-family: 'Oswald', sans-serif;
+}
 
 header ::after {
     content:'';
