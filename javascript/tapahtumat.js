@@ -137,7 +137,7 @@ function tanaanInfo(data) {
     while (info.firstChild) {
         info.removeChild(info.firstChild);
     }
-
+    console.log(data);
     const a = document.createElement('article');
     info.appendChild(a);
 
@@ -158,5 +158,23 @@ function tanaanInfo(data) {
         url.href = data.info_url
         url.textContent = 'Lisää tietoa täältä!'
         a.appendChild(url);
+    }
+    const btn = document.createElement('button');
+    btn.textContent = "Näytä reitti";
+    btn.setAttribute("id", "navb");
+    info.appendChild(btn);
+    btn.onclick = function () {
+        navigator.geolocation.getCurrentPosition(success, error, options);
+        function success(pos) {
+            const crd = pos.coords;
+            L.Routing.control({  
+                waypoints: [
+                    L.latLng(crd.latitude, crd.longitude),
+                    L.latLng(data.location.lat, data.location.lon)
+
+                ], router: L.Routing.mapbox('sk.eyJ1IjoibW9pa29ubmEiLCJhIjoiY2t6eTZjMGtlMDhqejJvcGNzanEwcDZhayJ9.an_sHh9hmXUePnTLrVzyFA')
+            }).addTo(map);
+
+        }
     }
 }
