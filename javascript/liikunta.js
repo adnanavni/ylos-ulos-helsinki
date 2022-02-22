@@ -74,12 +74,12 @@ async function liikunta() {
                                 navigator.geolocation.getCurrentPosition(success, error, options);
                                 function success(pos) {
                                     const crd = pos.coords;
-                                    L.Routing.control({
+                                    L.Routing.control({  
                                         waypoints: [
                                             L.latLng(crd.latitude, crd.longitude),
                                             L.latLng(liikuntaPaikka.location.coordinates.wgs84.lat, liikuntaPaikka.location.coordinates.wgs84.lon)
 
-                                        ]
+                                        ], router: L.Routing.mapbox('sk.eyJ1IjoibW9pa29ubmEiLCJhIjoiY2t6eTZjMGtlMDhqejJvcGNzanEwcDZhayJ9.an_sHh9hmXUePnTLrVzyFA')
                                     }).addTo(map);
 
                                 }
