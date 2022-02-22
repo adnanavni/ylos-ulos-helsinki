@@ -75,6 +75,7 @@ async function liikunta() {
                                 function success(pos) {
                                     const crd = pos.coords;
                                     L.Routing.control({
+                                        router: L.Routing.mapbox('sk.eyJ1IjoibW9pa29ubmEiLCJhIjoiY2t6eTZjMGtlMDhqejJvcGNzanEwcDZhayJ9.an_sHh9hmXUePnTLrVzyFA'),
                                         waypoints: [
                                             L.latLng(crd.latitude, crd.longitude),
                                             L.latLng(liikuntaPaikka.location.coordinates.wgs84.lat, liikuntaPaikka.location.coordinates.wgs84.lon)
