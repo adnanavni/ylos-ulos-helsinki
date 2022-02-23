@@ -4,8 +4,6 @@ const info = document.getElementById('info');
 const seuraavaNappi = document.getElementById('seuraava');
 const edellinenNappi = document.getElementById('edellinen');
 
-
-
 // Tapahtumien hakeminen avainsanalla
 const tapahtumaHaku = document.getElementById('hakukentta');
 const tapahtumaHakusana = document.getElementById('hakusana');
@@ -33,11 +31,11 @@ let indeksi = -1;
 // Funktio, joka tulostaa infoboxiin haun ekan tapahtuman, napista seuraavan
 function hakuInfo(data) {
     indeksi++;
-    if (indeksi > data.data.length) {
+    if (indeksi > data.data.length - 1) {
         indeksi = 0;
     }
     if (indeksi < 0) {
-        indeksi = data.data.length
+        indeksi = data.data.length - 1;
     }
     while (info.firstChild) {
         info.removeChild(info.firstChild);
@@ -46,7 +44,7 @@ function hakuInfo(data) {
     info.appendChild(a);
 
     const tulokset = document.createElement('p');
-    tulokset.textContent = "Tuloksia jäljellä: " + indeksi + "/" + data.data.length;
+    tulokset.textContent = "Tuloksia jäljellä: " + (indeksi + 1) + "/" + data.data.length;
     a.appendChild(tulokset);
 
     const nimi = document.createElement('h2');
@@ -54,7 +52,14 @@ function hakuInfo(data) {
     a.appendChild(nimi);
 
     const pvm = document.createElement('p');
-    pvm.textContent = new Date(data.data[indeksi].start_time);
+    const paiva = new Date(data.data[indeksi].start_time);
+    let minuutit = `${paiva.getMinutes()}`;
+
+    if (minuutit.endsWith('0', 1)) {
+        minuutit += '0';
+    }
+
+    pvm.innerHTML = paiva.getDate() + ' / ' + paiva.getMonth() + ' / ' + paiva.getFullYear() + ' <br> Klo: ' + paiva.getHours() + '.' + minuutit;
     a.appendChild(pvm);
 
     if (data.data[indeksi].short_description != null) {
@@ -75,11 +80,11 @@ function hakuInfo(data) {
 // Funktio, joka tulostaa infoboxiin haun ekan tapahtuman, napista edellisen
 function hakuInfoNeg(data) {
     indeksi--;
-    if (indeksi > data.data.length) {
+    if (indeksi > data.data.length - 1) {
         indeksi = 0;
     }
     if (indeksi < 0) {
-        indeksi = data.data.length
+        indeksi = data.data.length - 1;
     }
     while (info.firstChild) {
         info.removeChild(info.firstChild);
@@ -88,7 +93,7 @@ function hakuInfoNeg(data) {
     info.appendChild(a);
 
     const tulokset = document.createElement('p');
-    tulokset.textContent = "Tuloksia jäljellä: " + indeksi + "/" + data.data.length;
+    tulokset.textContent = "Tuloksia jäljellä: " + (indeksi + 1) + "/" + data.data.length;
     a.appendChild(tulokset);
 
     const nimi = document.createElement('h2');
@@ -96,7 +101,14 @@ function hakuInfoNeg(data) {
     a.appendChild(nimi);
 
     const pvm = document.createElement('p');
-    pvm.textContent = new Date(data.data[indeksi].start_time);
+    const paiva = new Date(data.data[indeksi].start_time);
+    let minuutit = `${paiva.getMinutes()}`;
+
+    if (minuutit.endsWith('0', 1)) {
+        minuutit += '0';
+    }
+
+    pvm.innerHTML = paiva.getDate() + ' / ' + paiva.getMonth() + ' / ' + paiva.getFullYear() + ' <br> Klo: ' + paiva.getHours() + '.' + minuutit;
     a.appendChild(pvm);
 
     if (data.data[indeksi].short_description != null) {
@@ -146,7 +158,13 @@ function tanaanInfo(data) {
     a.appendChild(nimi);
 
     const pvm = document.createElement('p');
-    pvm.textContent = new Date(data.event_dates.starting_day);
+    const paiva = new Date(data.event_dates.starting_day);
+    let minuutit = `${paiva.getMinutes()}`;
+
+    if (minuutit.endsWith('0', 1)) {
+        minuutit += '0';
+    }
+    pvm.innerHTML = paiva.getDate() + ' / ' + paiva.getMonth() + ' / ' + paiva.getFullYear() + ' <br> Klo: ' + paiva.getHours() + '.' + minuutit;
     a.appendChild(pvm);
 
     const description = document.createElement('p');
