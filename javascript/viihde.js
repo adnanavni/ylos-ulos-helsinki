@@ -7,19 +7,19 @@ const tapahtumaApi = 'https://open-api.myhelsinki.fi/v1/places/?tags_search=';
 const hakukohde = proxy + encodeURIComponent(tapahtumaApi);
 
 const hotlahaku = document.getElementById('haeHotlat');
-hotlahaku.addEventListener('click', () => hotellit(), { once: true });
+hotlahaku.addEventListener('click', () =>{remove(); hotellit()});
 
 const raflahaku = document.getElementById('haeRaflat');
-raflahaku.addEventListener('click', () => raflat(), { once: true });
+raflahaku.addEventListener('click', () =>{ remove();raflat()});
 
 const baarihaku = document.getElementById('haeBaarit');
-baarihaku.addEventListener('click', () => baarit(), { once: true });
+baarihaku.addEventListener('click', () => {remove();baarit()});
 
 const clubihaku = document.getElementById('haeYokerhot');
-clubihaku.addEventListener('click', () => clubit(), { once: true });
+clubihaku.addEventListener('click', () => {remove();clubit()});
 
 const saunahaku = document.getElementById('haeSaunat');
-saunahaku.addEventListener('click', () => saunat(), { once: true });
+saunahaku.addEventListener('click', () =>{remove(); saunat()});
 
 // Funktio, joka hakee sauna tägillä dataa apista ja lisää pisteet kartalle
 function saunat() {

@@ -33,9 +33,30 @@ function error(err) {
 
 // Käynnistetään paikkatietojen haku
 navigator.geolocation.getCurrentPosition(success, error, options);
-
+ 
+let layer =  L.layerGroup()
 // Funktio, jonka avulla voi lisätä pisteitä kartalle
 function lisaaKartalle(longitude, latitude, nimi) {
-    return L.marker([latitude, longitude]).
-        addTo(map).bindPopup(nimi);
+	
+	    let marker;
+        marker = new L.Marker([latitude, longitude]);
+	    marker.bindPopup(nimi);
+		 layer.addLayer(marker).addTo(map);
+	return marker;
+      
+    
+    
+
+	
+	
+	
+  //  return L.marker([latitude, longitude]).
+     //   addTo(map).bindPopup(nimi);
+}
+function remove(){
+	layer.remove();
+	layer=L.layerGroup()
+	while (info.firstChild) {
+        info.removeChild(info.firstChild);
+    }
 }
