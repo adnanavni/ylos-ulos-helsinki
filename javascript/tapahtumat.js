@@ -132,12 +132,12 @@ async function tapahtumatTanaan() {
     }
 }
 
-// Funktio, joka tulostaa infoboxiin tiedot tapahtumasta
+// Funktio, joka tulostaa infoboxiin tiedot tapahtumasta, tulostaa ja käynnistää myös navigoinnin
 function tanaanInfo(data) {
     while (info.firstChild) {
         info.removeChild(info.firstChild);
     }
-    console.log(data);
+
     const a = document.createElement('article');
     info.appendChild(a);
 
@@ -159,6 +159,7 @@ function tanaanInfo(data) {
         url.textContent = 'Lisää tietoa täältä!'
         a.appendChild(url);
     }
+
     const btn = document.createElement('button');
     btn.textContent = "Näytä reitti";
     btn.setAttribute("id", "navb");
@@ -167,7 +168,7 @@ function tanaanInfo(data) {
         navigator.geolocation.getCurrentPosition(success, error, options);
         function success(pos) {
             const crd = pos.coords;
-            L.Routing.control({  
+            L.Routing.control({
                 waypoints: [
                     L.latLng(crd.latitude, crd.longitude),
                     L.latLng(data.location.lat, data.location.lon)

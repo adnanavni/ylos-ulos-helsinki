@@ -11,7 +11,7 @@ const uimaNappi = document.getElementById('vesi');
 uimaNappi.addEventListener('click', () => uimaPaikat(), { once: true });
 
 // Funktio joka hakee ensin Helsingin alueelta sportsPlaceId:t, joiden avulla hakee myöhemmin tietoja liikuntapaikasta
-// Kartasta painaessa muodostaa elementtejä jotta informaatio APIsta ilmestyisi sivulle
+// Kartasta painaessa muodostaa elementtejä jotta informaatio APIsta ilmestyisi sivulle, tulostaa ja käynnistää myös navigoinnin
 async function liikunta() {
     const proxy = 'https://api.allorigins.win/get?url=';
     const haku = 'http://lipas.cc.jyu.fi/api/sports-places?searchString=helsinki';
@@ -74,7 +74,7 @@ async function liikunta() {
                                 navigator.geolocation.getCurrentPosition(success, error, options);
                                 function success(pos) {
                                     const crd = pos.coords;
-                                    L.Routing.control({  
+                                    L.Routing.control({
                                         waypoints: [
                                             L.latLng(crd.latitude, crd.longitude),
                                             L.latLng(liikuntaPaikka.location.coordinates.wgs84.lat, liikuntaPaikka.location.coordinates.wgs84.lon)
@@ -112,7 +112,7 @@ async function liikunta() {
 }
 
 // Funktio, joka hakee uimapaikat
-// Kartasta painaessa muodostaa elementtejä jotta informaatio APIsta ilmestyisi sivulle
+// Kartasta painaessa muodostaa elementtejä jotta informaatio APIsta ilmestyisi sivulle, tulostaa ja käynnistää myös navigoinnin
 function uimaPaikat() {
     fetch('https://iot.fvh.fi/opendata/uiras/uiras2_v1.json')
         .then(function (vastaus) {
@@ -147,21 +147,21 @@ function uimaPaikat() {
                             linkki.textContent = innerObject.meta.site_url;
                             info.appendChild(linkki);
                         }
-                        
-                        btn.onclick = function unav () {
-                        navigator.geolocation.getCurrentPosition(success, error, options);
-                        function success(pos) {
-                            const crd = pos.coords;
-                            L.Routing.control({  
-                                waypoints: [
-                                    L.latLng(crd.latitude, crd.longitude),
-                                    L.latLng(innerObject.meta.lat, innerObject.meta.lon)
-        
-                                ], router: L.Routing.mapbox('sk.eyJ1IjoibW9pa29ubmEiLCJhIjoiY2t6eTZjMGtlMDhqejJvcGNzanEwcDZhayJ9.an_sHh9hmXUePnTLrVzyFA')
-                            }).addTo(map);
-        
+
+                        btn.onclick = function unav() {
+                            navigator.geolocation.getCurrentPosition(success, error, options);
+                            function success(pos) {
+                                const crd = pos.coords;
+                                L.Routing.control({
+                                    waypoints: [
+                                        L.latLng(crd.latitude, crd.longitude),
+                                        L.latLng(innerObject.meta.lat, innerObject.meta.lon)
+
+                                    ], router: L.Routing.mapbox('sk.eyJ1IjoibW9pa29ubmEiLCJhIjoiY2t6eTZjMGtlMDhqejJvcGNzanEwcDZhayJ9.an_sHh9hmXUePnTLrVzyFA')
+                                }).addTo(map);
+
+                            }
                         }
-                    }
                     });
             }
 
