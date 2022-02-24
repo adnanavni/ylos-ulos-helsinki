@@ -40,7 +40,6 @@ function clubit() {
     return vastaus.json();
   }).then(function (data) {
     const clubit = JSON.parse(data.contents);
-
     for (let i = 0; i < clubit.data.length; i++) {
       lisaaKartalle(clubit.data[i].location.lon, clubit.data[i].location.lat, clubit.data[i].name.fi).on('click', () => infoBoxi(clubit, [i]));
     }
