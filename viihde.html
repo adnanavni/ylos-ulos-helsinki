@@ -9,30 +9,45 @@
     <link rel="stylesheet" href="css/viihde.css">
     <link rel="stylesheet" href="css/media.css">
 </head>
-<body class="class-for-viihde">
-    <header class="container">
-        <nav>
-            <h1><a href="index.html">¡ Ylös - Ulos - Helsinki !</a></h1>
-            <ul id="menu">
-                <li data-bg="./resources/liikunta2.jpg"><a href="liikunta.html">Liikunta</a></li>
-                <li data-bg="./resources/viihde.jpg"><a href="viihde.html">Viihde</a></li>
-                <li data-bg="./resources/helsinki2.jpg"><a href="tapahtuma.html">Tapahtumat</a></li>
-            </ul>
-        </nav>
-    </header>
-<main>
-    <div id="map"></div>
-    <section>
-        <button id="haeHotlat">Hotellit</button>
-        <button id="haeRaflat">Ravintolat</button>
-        <button id="haeBaarit">Baarit</button>
-        <button id="haeYokerhot">Yökerhot</button>
-        <button id="haeSaunat">Saunat</button>
+<body>
+<header class="container">
+    <nav>
+        <h1><a href="index.html">¡ Ylös - Ulos - Helsinki !</a></h1>
+        <ul id="menu">
+            <li data-bg="./resources/liikunta2.jpg"><a href="liikunta.html">Liikunta</a></li>
+            <li data-bg="./resources/viihde.jpg"><a href="viihde.html">Viihde</a></li>
+            <li data-bg="./resources/helsinki2.jpg"><a href="tapahtuma.html">Tapahtumat</a></li>
+        </ul>
+    </nav>
+</header>
+<main class="taustakuva">
+    <section id="kontaineri">
+        <div id="map"></div>
+        <div id="napposet">
+            <button id="haeHotlat" class="nappulat">Hotellit</button>
+            <br>
+            <button id="haeRaflat" class="nappulat">Ravintolat</button>
+            <br>
+            <button id="haeBaarit" class="nappulat">Baarit</button>
+            <br>
+            <button id="haeYokerhot" class="nappulat">Yökerhot</button>
+            <br>
+            <button id="haeSaunat" class="nappulat">Saunat</button>
+        </div>
+        <div id="info">
+            <h2>Valitse kartasta paikka, <br> tarkemmat tiedot ilmestyvät tänne:</h2>
+        </div>
     </section>
-    <div id="info">
-        <h2>Valitse kartasta paikka, <br> Lisätiedot ilmestyvät tänne:</h2>
-    </div>
 </main>
+<footer>
+    <p>Seuraa meitä somessa!</p>
+    <ul id="somet">
+        <li><a href="https://www.tiktok.com/@metropolian_mieskuoro"><img src="./resources/tiktok.png"></a></li>
+        <li><a href="https://www.instagram.com/eetuhaverinen/"><img src="./resources/ig.png"></a></li>
+        <li><a href="https://www.instagram.com/henqqz/"><img src="./resources/ig.png"></a></li>
+        <li><a href="https://www.instagram.com/adnanavni/"><img src="./resources/ig.png"></a></li>
+    </ul>
+</footer>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.js"></script>
 <script src="./javascript/main.js"></script>
 <script src="./javascript/viihde.js"></script>
