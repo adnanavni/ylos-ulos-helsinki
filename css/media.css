@@ -17,8 +17,12 @@
         padding-bottom: 10px;
   
     }
-  
-  }
+    #video, #saa, #artikkeli{
+        width: 60%;
+    }
+
+
+}
   @media only screen and (max-width: 560px) {
     header h1 {
         float: none;
@@ -41,7 +45,9 @@
     #menu a{
         font-size: 20px;
     }
-  
+      #video, #saa, #artikkeli{
+          width: 70%;
+      }
   }
   
   @media only screen and (max-width: 450px) {
@@ -65,4 +71,8 @@
     #menu a{
         font-size: 17px;
     }
+      #video, #saa, #artikkeli{
+          width: 80%;
+      }
+
   }
