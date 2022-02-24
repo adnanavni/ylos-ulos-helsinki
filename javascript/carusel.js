@@ -27,18 +27,18 @@ function showSlides(n) {
 }
 
 //taustakuvan vaihtoon
-const body = document.querySelector('body');
+const main = document.querySelector('main');
 const li = document.querySelectorAll('#menu li');
 
 li.forEach(el => {
   el.addEventListener("mouseover", () => {
     let bg = el.getAttribute("data-bg");
-    body.style.background = `url(${bg})no-repeat center /cover`;
+    main.style.background = `url(${bg})no-repeat center /cover`;
   })
 })
 li.forEach(el => {
   el.addEventListener("mouseout", () => {
-    body.style.background = `url(./resources/helsinki2.jpg)no-repeat center /cover`;
+    main.style.background = `url(./resources/helsinki2.jpg)no-repeat center /cover`;
   })
 })
 

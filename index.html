@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="css/main.css">
   <link rel="stylesheet" href="css/media.css">
 </head>
-<body style="background: url(./resources/helsinki2.jpg)no-repeat center /cover;">
+<body>
   <header class="container">
     <nav>
       <h1><a href="index.html">¡ Ylös - Ulos - Helsinki !</a></h1>
@@ -19,7 +19,8 @@
       </ul>
     </nav>
   </header>
-<main>
+<main class="taustakuva">
+
 <section class="slideshow-container">
 
   <article class="mySlides fade">
@@ -45,14 +46,16 @@
 
   <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
   <a class="next" onclick="plusSlides(1)">&#10095;</a>
-</section>
-<br>
 
-<section style="text-align:center">
+  <section style="text-align:center">
   <span class="dot" onclick="currentSlide(1)"></span>
   <span class="dot" onclick="currentSlide(2)"></span>
   <span class="dot" onclick="currentSlide(3)"></span>
+  </section>
+
 </section>
+
+</main>
   <footer>
     <p>Seuraa meitä somessa!</p>
     <ul id="somet">
@@ -63,7 +66,6 @@
       <li><a href="https://www.instagram.com/adnanavni/"><img src="./resources/ig.png"></a></li>
     </ul>
   </footer>
-</main>
 <script src="./javascript/carusel.js"></script>
 <script async src="https://api.countapi.xyz/hit/ylosuloshki/7b56fb76-fffb-4114-94c5-585c326396a2?callback=websiteVisits"> </script>
 <script src="./javascript/saa.js"></script>

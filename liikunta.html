@@ -20,24 +20,28 @@
             </ul>
             </nav>
     </header>
-    <main>
-    <section>
-        <div id="map"></div>
-
+    <main class="taustakuva">
+        <section id="kontaineri">
+        <div id="map"></div> 
+        <div id="napposet">
+          <button id="liikunta" class="napit">Liikunta</button>
+          <br>
+          <button id="vesi" class="napit">Uimarannat</button>
+        </div>
         <div id="info">
           <h2>Valitse kartasta paikka, <br> tarkemmat tiedot ilmestyvät tänne:</h2>
         </div>
-
-        <button id="liikunta" class="yeet">Liikunta</button>
-        <br>
-        <button id="vesi" class="yeet">Uimarannat</button>
-
-	
-
-        
-  
-    </section>
-    </main>
+        </section>
+        </main>
+        <footer>
+          <p>Seuraa meitä somessa!</p>
+          <ul id="somet">
+            <li><a href="https://www.tiktok.com/@metropolian_mieskuoro"><img src="./resources/tiktok.png"></a></li>
+            <li><a href="https://www.instagram.com/eetuhaverinen/"><img src="./resources/ig.png"></a></li>
+            <li><a href="https://www.instagram.com/henqqz/"><img src="./resources/ig.png"></a></li>
+            <li><a href="https://www.instagram.com/adnanavni/"><img src="./resources/ig.png"></a></li>
+          </ul>
+        </footer>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.js"></script>
     <script src="./javascript/main.js"></script>
     <script src="./javascript/liikunta.js"></script>

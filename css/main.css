@@ -1,7 +1,6 @@
 header {
     width: 100%;
     background-color:#161B33;
-
 }
 
 body{
@@ -9,6 +8,7 @@ body{
   transition: background 1s;
   margin:0;
   font-family: 'Oswald', sans-serif;;
+  height: 1275px;
 }
 
 header h1 {
@@ -82,8 +82,8 @@ header ::after {
 }
 
 #video, #saa, #artikkeli {
-    width: 50%;
-    height: 500px;
+    width: 75%;
+    height: 600px;
     margin: auto;
     background-image: linear-gradient(to bottom, rgba(255,0,0,0), rgba(244,239,228,1));
     color:#161B33;
@@ -95,6 +95,7 @@ header ::after {
   max-width: 1000px;
   position: relative;
   margin: auto;
+  margin-bottom: 20%;
 }
 
 .mySlides {
@@ -147,7 +148,7 @@ header ::after {
     cursor: pointer;
     height: 15px;
     width: 15px;
-    margin: 0 2px;
+    margin: 20px 2px;
     background-color: rgb(255, 255, 255);
     border-radius: 50%;
     display: inline-block;
@@ -177,7 +178,7 @@ header ::after {
 footer {
     background-color: rgba(22,	27 , 51, 0.95);
     color:white;
-    margin-top: 10%;
+    overflow: auto;
 }
 footer p{
     float:left;
@@ -209,3 +210,11 @@ footer p{
     padding-bottom: 10px;
     position:relative;
     }
+
+.taustakuva {
+  background: url("../resources/helsinki2.jpg")no-repeat center /cover;
+  width: 100%;
+  height: 100%;
+  font-family: 'Oswald', sans-serif;
+  overflow: auto;
+}
