@@ -4,11 +4,11 @@ const info = document.getElementById('info');
 
 // Nappia painaessa liikuntapaikat ilmestyvät funktion kautta kartalle
 const liikuntaNappi = document.getElementById('liikunta');
-liikuntaNappi.addEventListener('click', function(){remove();liikunta()} );
+liikuntaNappi.addEventListener('click', function () { remove(); liikunta() });
 
 // Nappia painaessa uimapaikat ilmestyvät funktion kautta kartalle
 const uimaNappi = document.getElementById('vesi');
-uimaNappi.addEventListener('click', function(){remove();uimaPaikat()});
+uimaNappi.addEventListener('click', function () { remove(); uimaPaikat() });
 
 // Funktio joka hakee ensin Helsingin alueelta sportsPlaceId:t, joiden avulla hakee myöhemmin tietoja liikuntapaikasta
 // Kartasta painaessa muodostaa elementtejä jotta informaatio APIsta ilmestyisi sivulle, tulostaa ja käynnistää myös navigoinnin
@@ -31,7 +31,7 @@ async function liikunta() {
                 }).
                 then(function (data) {
                     const liikuntaPaikka = JSON.parse(data.contents);
-                    lisaaKartalle(liikuntaPaikka.location.coordinates.wgs84.lon, liikuntaPaikka.location.coordinates.wgs84.lat, liikuntaPaikka.name)
+                    lisaaKartalle(liikuntaPaikka.location.coordinates.wgs84.lon, liikuntaPaikka.location.coordinates.wgs84.lat, liikuntaPaikka.name, liikuntaIcon)
                         .on('click', function () {
 
                             while (info.firstChild) {
@@ -123,7 +123,7 @@ function uimaPaikat() {
             for (const innerObject of Object.values(data.sensors)) {
                 let x = innerObject.data.length - 1;
                 console.log(innerObject);
-                lisaaKartalle(innerObject.meta.lon, innerObject.meta.lat, innerObject.meta.name)
+                lisaaKartalle(innerObject.meta.lon, innerObject.meta.lat, innerObject.meta.name, uimaIcon)
                     .on('click', function () {
 
                         while (info.firstChild) {

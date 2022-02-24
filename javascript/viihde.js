@@ -7,19 +7,19 @@ const tapahtumaApi = 'https://open-api.myhelsinki.fi/v1/places/?tags_search=';
 const hakukohde = proxy + encodeURIComponent(tapahtumaApi);
 
 const hotlahaku = document.getElementById('haeHotlat');
-hotlahaku.addEventListener('click', () =>{remove(); hotellit()});
+hotlahaku.addEventListener('click', () => { remove(); hotellit() });
 
 const raflahaku = document.getElementById('haeRaflat');
-raflahaku.addEventListener('click', () =>{ remove();raflat()});
+raflahaku.addEventListener('click', () => { remove(); raflat() });
 
 const baarihaku = document.getElementById('haeBaarit');
-baarihaku.addEventListener('click', () => {remove();baarit()});
+baarihaku.addEventListener('click', () => { remove(); baarit() });
 
 const clubihaku = document.getElementById('haeYokerhot');
-clubihaku.addEventListener('click', () => {remove();clubit()});
+clubihaku.addEventListener('click', () => { remove(); clubit() });
 
 const saunahaku = document.getElementById('haeSaunat');
-saunahaku.addEventListener('click', () =>{remove(); saunat()});
+saunahaku.addEventListener('click', () => { remove(); saunat() });
 
 // Funktio, joka hakee sauna tägillä dataa apista ja lisää pisteet kartalle
 function saunat() {
@@ -29,7 +29,7 @@ function saunat() {
     const saunat = JSON.parse(data.contents);
 
     for (let i = 0; i < saunat.data.length; i++) {
-      lisaaKartalle(saunat.data[i].location.lon, saunat.data[i].location.lat, saunat.data[i].name.fi).on('click', () => infoBoxi(saunat, [i]));
+      lisaaKartalle(saunat.data[i].location.lon, saunat.data[i].location.lat, saunat.data[i].name.fi, saunaIcon).on('click', () => infoBoxi(saunat, [i]));
     }
   });
 }
@@ -41,7 +41,7 @@ function clubit() {
   }).then(function (data) {
     const clubit = JSON.parse(data.contents);
     for (let i = 0; i < clubit.data.length; i++) {
-      lisaaKartalle(clubit.data[i].location.lon, clubit.data[i].location.lat, clubit.data[i].name.fi).on('click', () => infoBoxi(clubit, [i]));
+      lisaaKartalle(clubit.data[i].location.lon, clubit.data[i].location.lat, clubit.data[i].name.fi, clubIcon).on('click', () => infoBoxi(clubit, [i]));
     }
   });
 }
@@ -54,7 +54,7 @@ function baarit() {
     const baarit = JSON.parse(data.contents);
 
     for (let i = 0; i < baarit.data.length; i++) {
-      lisaaKartalle(baarit.data[i].location.lon, baarit.data[i].location.lat, baarit.data[i].name.fi).on('click', () => infoBoxi(baarit, [i]));
+      lisaaKartalle(baarit.data[i].location.lon, baarit.data[i].location.lat, baarit.data[i].name.fi, baariIcon).on('click', () => infoBoxi(baarit, [i]));
     }
   });
 }
@@ -66,7 +66,7 @@ function raflat() {
   }).then(function (data) {
     const raflat = JSON.parse(data.contents);
     for (let i = 0; i < raflat.data.length; i++) {
-      lisaaKartalle(raflat.data[i].location.lon, raflat.data[i].location.lat, raflat.data[i].name.fi).on('click', () => infoBoxi(raflat, [i]));
+      lisaaKartalle(raflat.data[i].location.lon, raflat.data[i].location.lat, raflat.data[i].name.fi, ravintolaIcon).on('click', () => infoBoxi(raflat, [i]));
     }
   });
 }
@@ -78,7 +78,7 @@ function hotellit() {
   }).then(function (data) {
     const hotellit = JSON.parse(data.contents);
     for (let i = 0; i < hotellit.data.length; i++) {
-      lisaaKartalle(hotellit.data[i].location.lon, hotellit.data[i].location.lat, hotellit.data[i].name.fi).on('click', () => infoBoxi(hotellit, [i]));
+      lisaaKartalle(hotellit.data[i].location.lon, hotellit.data[i].location.lat, hotellit.data[i].name.fi, hotelliIcon).on('click', () => infoBoxi(hotellit, [i]));
     }
   });
 }

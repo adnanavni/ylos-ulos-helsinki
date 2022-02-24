@@ -140,7 +140,7 @@ async function tapahtumatTanaan() {
     const jarjestys = tapahtumat.data.filter(a => a.event_dates.starting_day && new Date().getTime() < new Date(a.event_dates.starting_day)
         .getTime()).sort((a, b) => new Date(a.event_dates.starting_day) - new Date(b.event_dates.starting_day));
     for (let i = 0; i < 100; i++) {
-        lisaaKartalle(jarjestys[i].location.lon, jarjestys[i].location.lat, jarjestys[i].name.fi).on('click', () => tanaanInfo(jarjestys[i]));
+        lisaaKartalle(jarjestys[i].location.lon, jarjestys[i].location.lat, jarjestys[i].name.fi, tapahtumaIcon).on('click', () => tanaanInfo(jarjestys[i]));
     }
 }
 

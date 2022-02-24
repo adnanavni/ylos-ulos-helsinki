@@ -20,7 +20,7 @@ function success(pos) {
 
     map.setView([crd.latitude, crd.longitude], 13);
 
-    L.marker([crd.latitude, crd.longitude]).addTo(map)
+    L.marker([crd.latitude, crd.longitude], { icon: omaIcon }).addTo(map)
         .bindPopup('Olen tässä.')
         .openPopup();
 
@@ -33,30 +33,24 @@ function error(err) {
 
 // Käynnistetään paikkatietojen haku
 navigator.geolocation.getCurrentPosition(success, error, options);
- 
-let layer =  L.layerGroup()
-// Funktio, jonka avulla voi lisätä pisteitä kartalle
-function lisaaKartalle(longitude, latitude, nimi) {
-	
-	    let marker;
-        marker = new L.Marker([latitude, longitude]);
-	    marker.bindPopup(nimi);
-		 layer.addLayer(marker).addTo(map);
-	return marker;
-      
-    
-    
 
-	
-	
-	
-  //  return L.marker([latitude, longitude]).
-     //   addTo(map).bindPopup(nimi);
+let layer = L.layerGroup()
+// Funktio, jonka avulla voi lisätä pisteitä kartalle
+function lisaaKartalle(longitude, latitude, nimi, ikoni) {
+
+    let marker;
+    marker = new L.Marker([latitude, longitude], { icon: ikoni });
+    marker.bindPopup(nimi);
+    layer.addLayer(marker).addTo(map);
+    return marker;
+
 }
-function remove(){
-	layer.remove();
-	layer=L.layerGroup()
-	while (info.firstChild) {
+
+// Poistaa kartalle lisätyt markkerit
+function remove() {
+    layer.remove();
+    layer = L.layerGroup()
+    while (info.firstChild) {
         info.removeChild(info.firstChild);
     }
 }

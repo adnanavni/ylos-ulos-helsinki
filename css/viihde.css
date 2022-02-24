@@ -113,6 +113,12 @@ header ::after {
     border:groove 2px;
     border-color:white;
     color: white;
+    margin-top: 20px;
+}
+
+img {
+    height: 72px;
+    width: 72px;
 }
 
 #navb{

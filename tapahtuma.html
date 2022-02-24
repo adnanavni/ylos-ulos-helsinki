@@ -21,28 +21,41 @@
             </ul>
             </nav>
     </header>
-<main>  
-    <section>
+<main class="taustakuva">  
+    <section id="kontaineri">
+
         <button id="tapahtumat">Tapahtumat Helsingissä lähipäivinä</button>
-    </section>
 
-    <div id="map"></div>
+        <div id="map"></div>
 
-    <form id="hakukentta">
-        <input type="text" placeholder="Hae tapahtumaa" id="hakusana">
-        <button type="submit"><i class="fas fa-search" id="hae"></i>Hae</button>
+        <form id="hakukentta">
+            <input type="text" placeholder="Hae tapahtumaa" id="hakusana">
+            <button type="submit"><i class="fas fa-search" id="hae"></i>Hae</button>
         </form>   
-        <section>   
+        
+        <section id="napit">   
             <button id="seuraava">Seuraava</button>
             <button id="edellinen">Edellinen</button>
         </section>  
+
     <div id="info">
         <h2>Tiedot tapahtumista: </h2>
     </div>
-</main>    
+    </section>
+</main>   
+<footer>
+    <p>Seuraa meitä somessa!</p>
+    <ul id="somet">
+      <li><a href="https://www.tiktok.com/@metropolian_mieskuoro"><img src="./resources/tiktok.png"></a></li>
+      <li><a href="https://www.instagram.com/eetuhaverinen/"><img src="./resources/ig.png"></a></li>
+      <li><a href="https://www.instagram.com/henqqz/"><img src="./resources/ig.png"></a></li>
+      <li><a href="https://www.instagram.com/adnanavni/"><img src="./resources/ig.png"></a></li>
+    </ul>
+  </footer> 
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.js"></script>
     <script src="./javascript/main.js"></script>
+    <script src="./javascript/ikonit.js"></script>
     <script src="./javascript/tapahtumat.js"></script>
     <script src="./leaflet-routing-machine-3.2.12/dist/leaflet-routing-machine.js"></script>
 

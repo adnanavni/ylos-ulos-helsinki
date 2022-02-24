@@ -83,7 +83,6 @@ header ::after {
 }
 
 #map {
-    /*float:left;*/
     margin: 20px 0px;
     width: 45%;
     height:700px;
@@ -97,7 +96,6 @@ header ::after {
 }
 
 #info {
-    /*float:right;*/
     margin: 20px 0px;
     height:700px;
     border:groove 10px;
@@ -110,9 +108,15 @@ header ::after {
 .napit {
     background-color: #161B33; 
     text-align: center;
+    margin-top: 20px;
     border:groove 2px;
     border-color:white;
     color: white;
+}
+
+img {
+    height: 72px;
+    width: 72px;
 }
 
 #navb{
