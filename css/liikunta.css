@@ -25,9 +25,9 @@ main{
     border-color:#161B33;
 }
 
-#napposet {
+#napposetLiikka {
     margin:auto;
-    width: 50%;
+    width: 30%;
     display: flex;
     flex-wrap: nowrap;
     list-style-type: none;
@@ -40,17 +40,17 @@ main{
    
     border:groove 2px;
     border-color:white;
-    margin-inline: 1%;
+    margin-inline: 2%;
     margin-top: 4%;
 }
 
-.nappiKuvat {
-    height: 100%;
+.nappiKuvatLiikka    {
+    height: 80%;
     width: 50%;
 }
 
 #info {
-    margin: 20px 0px;
+    margin: 20px 0;
     height: 100%;
     border:groove 10px;
     border-color:#161B33;
@@ -68,10 +68,6 @@ main{
     color: white;
 }
 
-.nappiKuvat {
-    height: 72px;
-    width: 72px;
-}
 
 #navb{
     text-align: center;

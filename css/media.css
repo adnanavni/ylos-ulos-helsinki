@@ -47,9 +47,15 @@
         width: 80%;
         height: 80%;
     }
-
-    #napposet {
+    .nappiKuvatLiikka {
+        width: 80%;
+        height: 80%;
+    }
+    #napposet{
         width: 60%;
+    }
+    #napposetLiikka {
+        width: 30%;
     }
 
     .nappiTapahtumat {
