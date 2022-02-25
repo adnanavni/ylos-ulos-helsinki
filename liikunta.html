@@ -8,6 +8,7 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.css" rel="stylesheet">
     <link rel="stylesheet" href="./leaflet-routing-machine-3.2.12/dist/leaflet-routing-machine.css">
   <link rel="stylesheet" href="css/liikunta.css">
+  <link rel="stylesheet" href="css/main.css">
   <link rel="stylesheet" href="css/media.css">
 </head>
 <body>
@@ -21,32 +22,32 @@
             </ul>
             </nav>
     </header>
-    <main class="taustakuva">
-        <section id="kontaineri">
-        <div id="map"></div> 
-        <div id="napposet">
-          <button id="liikunta" class="napit" type="button"><img src="./resources/napit/liikunta.png" alt="kasipaino" id="kasipaino"></button>
-          <br>
-          <button id="vesi" class="napit"><img src="./resources/napit/uima.png" alt=""></button>
-        </div>
-        <div id="info">
-          <h2>Valitse kartasta paikka, <br> tarkemmat tiedot ilmestyvät tänne:</h2>
-        </div>
-        </section>
-        </main>
-        <footer>
-          <p>Seuraa meitä somessa!</p>
-          <ul id="somet">
-            <li><a href="https://www.tiktok.com/@metropolian_mieskuoro"><img src="./resources/tiktok.png"></a></li>
-            <li><a href="https://www.instagram.com/eetuhaverinen/"><img src="./resources/ig.png"></a></li>
-            <li><a href="https://www.instagram.com/henqqz/"><img src="./resources/ig.png"></a></li>
-            <li><a href="https://www.instagram.com/adnanavni/"><img src="./resources/ig.png"></a></li>
-          </ul>
-        </footer>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.js"></script>
-    <script src="./javascript/main.js"></script>
-    <script src="./javascript/ikonit.js"></script>
-    <script src="./javascript/liikunta.js"></script>
-    <script src="./leaflet-routing-machine-3.2.12/dist/leaflet-routing-machine.js"></script>
+  <main class="taustakuva">
+    <section id="kontaineri">
+      <div id="map"></div> 
+      <div id="napposet">
+        <button id="liikunta" class="napit" type="button"><img src="./resources/napit/liikunta.png" alt="kasipaino" class="nappiKuvat"></button>
+        <br>
+        <button id="vesi" class="napit"><img src="./resources/napit/uima.png" alt="uima" class="nappiKuvat"></button>
+      </div>
+      <aside id="info">
+        <h2>Valitse kartasta paikka, <br> tarkemmat tiedot ilmestyvät tänne:</h2>
+      </aside>
+      </section>
+  </main>
+  <footer>
+    <p>Seuraa meitä somessa!</p>
+    <ul id="somet">
+      <li><a href="https://www.tiktok.com/@metropolian_mieskuoro"><img src="./resources/tiktok.png"></a></li>
+      <li><a href="https://www.instagram.com/eetuhaverinen/"><img src="./resources/ig.png"></a></li>
+      <li><a href="https://www.instagram.com/henqqz/"><img src="./resources/ig.png"></a></li>
+      <li><a href="https://www.instagram.com/adnanavni/"><img src="./resources/ig.png"></a></li>
+    </ul>
+  </footer>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.js"></script>
+  <script src="./javascript/main.js"></script>
+  <script src="./javascript/ikonit.js"></script>
+  <script src="./javascript/liikunta.js"></script>
+  <script src="./leaflet-routing-machine-3.2.12/dist/leaflet-routing-machine.js"></script>
 </body>
 </html>

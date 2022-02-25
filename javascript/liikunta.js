@@ -33,80 +33,82 @@ async function liikunta() {
                     const liikuntaPaikka = JSON.parse(data.contents);
                     lisaaKartalle(liikuntaPaikka.location.coordinates.wgs84.lon, liikuntaPaikka.location.coordinates.wgs84.lat, liikuntaPaikka.name, liikuntaIcon)
                         .on('click', function () {
-
-                            while (info.firstChild) {
-                                info.removeChild(info.firstChild)
-                            }
-
-                            const nimi = document.createElement('h3');
-                            nimi.textContent = liikuntaPaikka.name;
-                            info.appendChild(nimi);
-
-                            const tyyppi = document.createElement('p');
-                            tyyppi.textContent = 'Tyyppi:' + liikuntaPaikka.type.name;
-                            info.appendChild(tyyppi);
-
-                            if (liikuntaPaikka.email != undefined) {
-                                const sposti = document.createElement('p');
-                                sposti.textContent = 'Sähköposti: ' + liikuntaPaikka.email;
-                                info.appendChild(sposti);
-                            }
-
-                            if (liikuntaPaikka.phoneNumber != undefined) {
-                                const puh = document.createElement('p');
-                                puh.textContent = 'Puhelinnumero: ' + liikuntaPaikka.phoneNumber;
-                                info.appendChild(puh);
-                            }
-
-                            const osoite = document.createElement('p');
-                            osoite.textContent = 'Osoite: ' + liikuntaPaikka.location.address;
-                            info.appendChild(osoite);
-
-                            const linkki = document.createElement('a');
-                            linkki.href = liikuntaPaikka.www;
-                            linkki.textContent = liikuntaPaikka.www;
-                            info.appendChild(linkki);
-
-                            const btn = document.createElement('button');
-                            btn.textContent = "Näytä reitti";
-                            btn.setAttribute("id", "navb");
-                            btn.onclick = function () {
-                                navigator.geolocation.getCurrentPosition(success, error, options);
-                                function success(pos) {
-                                    const crd = pos.coords;
-                                    L.Routing.control({
-                                        waypoints: [
-                                            L.latLng(crd.latitude, crd.longitude),
-                                            L.latLng(liikuntaPaikka.location.coordinates.wgs84.lat, liikuntaPaikka.location.coordinates.wgs84.lon)
-
-                                        ], router: L.Routing.mapbox('sk.eyJ1IjoibW9pa29ubmEiLCJhIjoiY2t6eTZjMGtlMDhqejJvcGNzanEwcDZhayJ9.an_sHh9hmXUePnTLrVzyFA')
-                                    }).addTo(map);
-
-                                }
-                            }
-                            // btn.setAttribute("onclick",navigointi());
-                            const br = document.createElement('br');
-                            info.appendChild(br);
-                            info.appendChild(btn);
-                            function navigointi() {
-                                navigator.geolocation.getCurrentPosition(success, error, options);
-                                function success(pos) {
-                                    const crd = pos.coords;
-                                    L.Routing.control({
-                                        waypoints: [
-                                            L.latLng(crd.latitude, crd.longitude),
-                                            L.latLng(liikuntaPaikka.location.coordinates.wgs84.lat, liikuntaPaikka.location.coordinates.wgs84.lon)
-
-                                        ]
-                                    }).addTo(map);
-
-                                }
-                            }
-
+                            liikuntaInfo(liikuntaPaikka);
                         });
                 }).catch(function (err) {
                     console.log(err);
                 });
+        }
+    }
+}
+
+//funktio joka tulostaa infoboxiin liikunta paikoista tiedot
+function liikuntaInfo(data) {
+    while (info.firstChild) {
+        info.removeChild(info.firstChild)
+    }
+
+    const nimi = document.createElement('h3');
+    nimi.textContent = data.name;
+    info.appendChild(nimi);
+
+    const tyyppi = document.createElement('p');
+    tyyppi.textContent = 'Tyyppi:' + data.type.name;
+    info.appendChild(tyyppi);
+
+    if (data.email != undefined) {
+        const sposti = document.createElement('p');
+        sposti.textContent = 'Sähköposti: ' + data.email;
+        info.appendChild(sposti);
+    }
+
+    if (data.phoneNumber != undefined) {
+        const puh = document.createElement('p');
+        puh.textContent = 'Puhelinnumero: ' + data.phoneNumber;
+        info.appendChild(puh);
+    }
+
+    const osoite = document.createElement('p');
+    osoite.textContent = 'Osoite: ' + data.location.address;
+    info.appendChild(osoite);
+
+    const linkki = document.createElement('a');
+    linkki.href = data.www;
+    linkki.textContent = data.www;
+    info.appendChild(linkki);
+
+    const btn = document.createElement('button');
+    btn.textContent = "Näytä reitti";
+    btn.setAttribute("id", "navb");
+    btn.onclick = function () {
+        navigator.geolocation.getCurrentPosition(success, error, options);
+        function success(pos) {
+            const crd = pos.coords;
+            L.Routing.control({
+                waypoints: [
+                    L.latLng(crd.latitude, crd.longitude),
+                    L.latLng(data.location.coordinates.wgs84.lat, data.location.coordinates.wgs84.lon)
+                ], router: L.Routing.mapbox('sk.eyJ1IjoibW9pa29ubmEiLCJhIjoiY2t6eTZjMGtlMDhqejJvcGNzanEwcDZhayJ9.an_sHh9hmXUePnTLrVzyFA')
+            }).addTo(map);
+
+        }
+    }
+    // btn.setAttribute("onclick",navigointi());
+    const br = document.createElement('br');
+    info.appendChild(br);
+    info.appendChild(btn);
+    function navigointi() {
+        navigator.geolocation.getCurrentPosition(success, error, options);
+        function success(pos) {
+            const crd = pos.coords;
+            L.Routing.control({
+                waypoints: [
+                    L.latLng(crd.latitude, crd.longitude),
+                    L.latLng(liikuntaPaikka.location.coordinates.wgs84.lat, liikuntaPaikka.location.coordinates.wgs84.lon)
+
+                ]
+            }).addTo(map);
+
         }
     }
 }
@@ -119,54 +121,53 @@ function uimaPaikat() {
             return vastaus.json();
         })
         .then(function (data) {
-            console.log(data);
             for (const innerObject of Object.values(data.sensors)) {
-                let x = innerObject.data.length - 1;
-                console.log(innerObject);
                 lisaaKartalle(innerObject.meta.lon, innerObject.meta.lat, innerObject.meta.name, uimaIcon)
                     .on('click', function () {
-
-                        while (info.firstChild) {
-                            info.removeChild(info.firstChild)
-                        }
-
-                        const nimi = document.createElement('h3');
-                        nimi.textContent = innerObject.meta.name;
-                        info.appendChild(nimi);
-
-                        const lampotila = document.createElement('p');
-                        lampotila.textContent = 'Vedenlämpötila: ' + innerObject.data[x].temp_water + ' °C';
-                        info.appendChild(lampotila);
-                        const btn = document.createElement('button');
-                        btn.textContent = "Näytä reitti";
-                        btn.setAttribute("id", "navb");
-                        info.appendChild(btn);
-                        if (innerObject.meta.site_url != "") {
-                            const linkki = document.createElement('a');
-                            linkki.href = innerObject.meta.site_url;
-                            linkki.textContent = innerObject.meta.site_url;
-                            info.appendChild(linkki);
-                        }
-
-                        btn.onclick = function unav() {
-                            navigator.geolocation.getCurrentPosition(success, error, options);
-                            function success(pos) {
-                                const crd = pos.coords;
-                                L.Routing.control({
-                                    waypoints: [
-                                        L.latLng(crd.latitude, crd.longitude),
-                                        L.latLng(innerObject.meta.lat, innerObject.meta.lon)
-
-                                    ], router: L.Routing.mapbox('sk.eyJ1IjoibW9pa29ubmEiLCJhIjoiY2t6eTZjMGtlMDhqejJvcGNzanEwcDZhayJ9.an_sHh9hmXUePnTLrVzyFA')
-                                }).addTo(map);
-
-                            }
-                        }
+                        uimaPaikatInfo(innerObject);
                     });
             }
-
-        }).catch(function (err) {
-            console.log(err);
         });
+}
 
+// Funktio, joka tulostaa infoboxiin tiedot uimapaikoista ja lämpötilan
+function uimaPaikatInfo(data) {
+
+    let x = data.data.length - 1;
+
+    while (info.firstChild) {
+        info.removeChild(info.firstChild)
+    }
+
+    const nimi = document.createElement('h3');
+    nimi.textContent = data.meta.name;
+    info.appendChild(nimi);
+
+    const lampotila = document.createElement('p');
+    lampotila.textContent = 'Vedenlämpötila: ' + data.data[x].temp_water + ' °C';
+    info.appendChild(lampotila);
+
+    const btn = document.createElement('button');
+    btn.textContent = "Näytä reitti";
+    btn.setAttribute("id", "navb");
+    info.appendChild(btn);
+    if (data.meta.site_url != "") {
+        const linkki = document.createElement('a');
+        linkki.href = data.meta.site_url;
+        linkki.textContent = data.meta.site_url;
+        info.appendChild(linkki);
+    }
+
+    btn.onclick = function unav() {
+        navigator.geolocation.getCurrentPosition(success, error, options);
+        function success(pos) {
+            const crd = pos.coords;
+            L.Routing.control({
+                waypoints: [
+                    L.latLng(crd.latitude, crd.longitude),
+                    L.latLng(data.meta.lat, data.meta.lon)
+                ], router: L.Routing.mapbox('sk.eyJ1IjoibW9pa29ubmEiLCJhIjoiY2t6eTZjMGtlMDhqejJvcGNzanEwcDZhayJ9.an_sHh9hmXUePnTLrVzyFA')
+            }).addTo(map);
+        }
+    }
 }
