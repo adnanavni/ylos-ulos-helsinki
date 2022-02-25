@@ -32,13 +32,13 @@
     }
 
     #info {
-        margin:0;
+        margin: 0;
         width: 80%;
         height: 100%;
     }
 
     #map {
-        margin-top:2%;
+        margin-top: 2%;
         width: 80%;
         height: 500px;
     }
@@ -47,12 +47,31 @@
         width: 80%;
         height: 80%;
     }
+
     #napposet {
         width: 60%;
     }
+
     .nappiTapahtumat {
         width: 50px;
         height: 50px;
+    }
+    #infotapahtuma{
+        width: 110%;
+    }
+    #infoBox {
+        margin: 0;
+        width: 80%;
+        height: 100%;
+    }
+
+    #kartta {
+        margin-top: 2%;
+        width: 80%;
+        height: 500px;
+    }
+    #tapahtumat{
+        margin-left: 10%;
     }
 }
   @media only screen and (max-width: 560px) {

@@ -1,6 +1,6 @@
 'use strict';
 
-const info = document.getElementById('info');
+const info = document.getElementById('infotapahtuma');
 const seuraavaNappi = document.getElementById('seuraava');
 const edellinenNappi = document.getElementById('edellinen');
 
