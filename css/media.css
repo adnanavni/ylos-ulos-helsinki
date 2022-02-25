@@ -48,14 +48,15 @@
         height: 80%;
     }
     .nappiKuvatLiikka {
-        width: 80%;
-        height: 80%;
+        width: 60%;
+        height: 30%;
     }
     #napposet{
-        width: 60%;
+        width: 80%;
     }
     #napposetLiikka {
-        width: 30%;
+        width: 60%;
+
     }
 
     .nappiTapahtumat {
@@ -78,6 +79,12 @@
     }
     #tapahtumat{
         margin-left: 10%;
+    }
+    #napit{
+        justify-content: center;
+    }
+    #tapahtumat{
+        margin: auto;
     }
 }
   @media only screen and (max-width: 560px) {
@@ -110,7 +117,7 @@
           height: 100%;
       }
       #napposet {
-          width: 70%;
+          width: 80%;
       }
 
       .nappiTapahtumat {

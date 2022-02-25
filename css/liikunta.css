@@ -41,12 +41,12 @@ main{
     border:groove 2px;
     border-color:white;
     margin-inline: 2%;
-    margin-top: 4%;
+    margin-top: 2%;
 }
 
 .nappiKuvatLiikka    {
     height: 80%;
-    width: 50%;
+    width: 60%;
 }
 
 #info {
