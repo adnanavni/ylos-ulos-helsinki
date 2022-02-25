@@ -10,12 +10,6 @@ main{
     font-family: 'Oswald', sans-serif;
 }
 
-
-.container{
-    width: 100%;
-    margin: 0 auto;
-}
-
 .taustakuva {
     background: url("../resources/liikunta2.jpg")no-repeat center /cover;
     width: 100%;
@@ -93,4 +87,3 @@ main{
     gap: 20px 20px;
     margin: 0px 20px;
 }
-

@@ -8,6 +8,7 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.css" rel="stylesheet">
     <link rel="stylesheet" href="./leaflet-routing-machine-3.2.12/dist/leaflet-routing-machine.css">
     <link rel="stylesheet" href="css/tapahtuma.css">
+    <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/media.css">
 </head>
 
@@ -24,24 +25,23 @@
 </header>
 <main class="taustakuva">
     <section id="kontaineri">
-
-        <button id="tapahtumat">Tapahtumat Helsingissä lähipäivinä</button>
-
-        <div id="map"></div>
-
-        <form id="hakukentta">
-            <input type="text" placeholder="Hae tapahtumaa" id="hakusana">
-            <button type="submit"><i class="fas fa-search" id="hae"></i>Hae</button>
-        </form>
-
-        <section id="napit">
-            <button id="seuraava">Seuraava</button>
-            <button id="edellinen">Edellinen</button>
+        <section id="kartta">
+            <button id="tapahtumat" class="napit">Tapahtumat Helsingissä lähipäivinä</button>
+            <div id="map"></div>
         </section>
-
-        <aside id="info">
-            <h2>Tiedot tapahtumista: </h2>
-        </aside>
+        <section id="infoBox">
+            <section id="napit">
+                <form id="hakukentta">
+                    <input type="text" placeholder="Hae tapahtumaa" id="hakusana">
+                    <button type="submit" class="napit"><i class="fas fa-search" id="hae"></i>Hae</button>
+                </form>
+                <button id="edellinen" class="napit"><img src="./resources/napit/edellinen.png" alt="edellinen" class="nappiTapahtumat"></button>
+                <button id="seuraava" class="napit"><img src="./resources/napit/seuraava.png" alt="seuraava" class="nappiTapahtumat"></button>
+            </section> 
+            <aside id="info">
+                <h2>Tiedot tapahtumista: </h2>
+            </aside>
+        </section>
     </section>
 </main>
 <footer>
