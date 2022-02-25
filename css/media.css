@@ -20,8 +20,20 @@
     #video, #saa, #artikkeli{
         width: 60%;
     }
-
-
+    #kontaineri {
+        display: flex;
+        flex-wrap: wrap;
+        vertical-align: middle;
+        gap:0;
+    }
+    #info{
+        width:80%;
+        height: 100%;
+    }
+    #map{
+        width:80%;
+        height: 500px;
+    }
 }
   @media only screen and (max-width: 560px) {
     header h1 {
@@ -74,5 +86,7 @@
       #video, #saa, #artikkeli{
           width: 80%;
       }
-
+    .nappiKuvat{
+        width:80%;
+    }
   }

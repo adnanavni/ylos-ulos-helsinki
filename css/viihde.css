@@ -85,26 +85,34 @@ header ::after {
 #map {
     /*float:left;*/
     margin: 20px 0px;
-    width: 45%;
+    width: 60%;
     height:700px;
     border:groove 10px;
     border-color:deeppink;
 }
 
 #napposet {
-    width: 5%;
-    align-self: center;
+    margin:auto;
+    width: 50%;
+    display: flex;
+    flex-wrap: nowrap;
+    list-style-type: none;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+
 }
 
 #info {
     /*float:right;*/
     margin: 20px 0px;
-    height:700px;
+    height: 100%;
     border:groove 10px;
     border-color:deeppink;
     background-color: rgba(255, 255, 255, 0.603);
     text-align: center;
-    width: 45%;
+    width: 40%;
 }
 
 .nappulat {
@@ -113,12 +121,13 @@ header ::after {
     border:groove 2px;
     border-color:white;
     color: white;
-    margin-top: 20px;
+    margin-inline: 1%;
+    margin-top: 4%;
 }
 
 .nappiKuvat {
-    height: 72px;
-    width: 72px;
+    height: 100%;
+    width: 50%;
 }
 
 #navb{
@@ -133,13 +142,15 @@ header ::after {
     flex-direction: row;
     justify-content: space-evenly;
     gap: 20px 20px;
-    margin: 0px 20px;
+    margin: 0 10px;
+
 }
 
 footer {
     background-color: rgba(22,	27 , 51, 0.95);
     color:white;
     overflow: auto;
+
 }
 footer p{
     float:left;
