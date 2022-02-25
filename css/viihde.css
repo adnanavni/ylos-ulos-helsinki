@@ -83,7 +83,6 @@ header ::after {
 }
 
 #map {
-    /*float:left;*/
     margin: 20px 0px;
     width: 60%;
     height:700px;
@@ -105,7 +104,6 @@ header ::after {
 }
 
 #info {
-    /*float:right;*/
     margin: 20px 0px;
     height: 100%;
     border:groove 10px;
