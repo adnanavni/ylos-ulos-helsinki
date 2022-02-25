@@ -19,7 +19,7 @@ main{
 
 #map {
     margin: 20px 0px;
-    width: 45%;
+    width: 60%;
     height:700px;
     border:groove 10px;
     border-color:#161B33;
@@ -51,12 +51,12 @@ main{
 
 #info {
     margin: 20px 0px;
-    height:700px;
+    height: 100%;
     border:groove 10px;
     border-color:#161B33;
     background-color: rgba(255, 255, 255, 0.603);
     text-align: center;
-    width: 45%;
+    width: 40%;
 }
 
 .napit {
@@ -85,5 +85,6 @@ main{
     flex-direction: row;
     justify-content: space-evenly;
     gap: 20px 20px;
-    margin: 0px 20px;
+    margin: 0 10px;
+
 }
