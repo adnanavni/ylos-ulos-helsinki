@@ -127,26 +127,6 @@
   }
   
   @media only screen and (max-width: 450px) {
-      header h1 {
-          float: none;
-          margin: auto;
-          text-align: center;
-          font-size: 30px;
-      }
-
-      #menu {
-          float: none;
-          margin: auto;
-          text-align: center;
-      }
-
-      #menu li {
-          margin: 0 30px;
-          padding-top: 10px;
-          padding-bottom: 10px;
-
-      }
-
       #menu a {
           font-size: 17px;
       }
