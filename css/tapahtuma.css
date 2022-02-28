@@ -105,6 +105,11 @@ body{
     float: left;
     height: 35px;
     width:200px;
+}
 
-
+#navb{
+    text-align: center;
+    background-color: darkred; 
+    color: white;
+    border: groove 2px;
 }

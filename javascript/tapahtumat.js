@@ -193,7 +193,6 @@ function tanaanInfo(data) {
 
                 ], router: L.Routing.mapbox('sk.eyJ1IjoibW9pa29ubmEiLCJhIjoiY2t6eTZjMGtlMDhqejJvcGNzanEwcDZhayJ9.an_sHh9hmXUePnTLrVzyFA')
             }).addTo(map);
-
         }
     }
 }

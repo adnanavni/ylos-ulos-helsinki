@@ -93,24 +93,10 @@ function liikuntaInfo(data) {
 
         }
     }
-    // btn.setAttribute("onclick",navigointi());
+
     const br = document.createElement('br');
     info.appendChild(br);
     info.appendChild(btn);
-    function navigointi() {
-        navigator.geolocation.getCurrentPosition(success, error, options);
-        function success(pos) {
-            const crd = pos.coords;
-            L.Routing.control({
-                waypoints: [
-                    L.latLng(crd.latitude, crd.longitude),
-                    L.latLng(liikuntaPaikka.location.coordinates.wgs84.lat, liikuntaPaikka.location.coordinates.wgs84.lon)
-
-                ]
-            }).addTo(map);
-
-        }
-    }
 }
 
 // Funktio, joka hakee uimapaikat
@@ -147,16 +133,17 @@ function uimaPaikatInfo(data) {
     lampotila.textContent = 'Vedenlämpötila: ' + data.data[x].temp_water + ' °C';
     info.appendChild(lampotila);
 
-    const btn = document.createElement('button');
-    btn.textContent = "Näytä reitti";
-    btn.setAttribute("id", "navb");
-    info.appendChild(btn);
     if (data.meta.site_url != "") {
         const linkki = document.createElement('a');
         linkki.href = data.meta.site_url;
         linkki.textContent = data.meta.site_url;
         info.appendChild(linkki);
     }
+
+    const btn = document.createElement('button');
+    btn.textContent = "Näytä reitti";
+    btn.setAttribute("id", "navb");
+    info.appendChild(btn);
 
     btn.onclick = function unav() {
         navigator.geolocation.getCurrentPosition(success, error, options);
@@ -170,4 +157,8 @@ function uimaPaikatInfo(data) {
             }).addTo(map);
         }
     }
+
+    const br = document.createElement('br');
+    info.appendChild(br);
+    info.appendChild(btn);
 }
