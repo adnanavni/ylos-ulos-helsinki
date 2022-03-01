@@ -1,16 +1,19 @@
 'use strict';
-
+let yeet;
 const info = document.getElementById('infotapahtuma');
 const seuraavaNappi = document.getElementById('seuraava');
 const edellinenNappi = document.getElementById('edellinen');
-
+seuraavaNappi.addEventListener('click', () => hakuInfo(yeet));
+edellinenNappi.addEventListener('click', () => hakuInfoNeg(yeet));
 // Tapahtumien hakeminen avainsanalla
 const tapahtumaHaku = document.getElementById('hakukentta');
 const tapahtumaHakusana = document.getElementById('hakusana');
 const tapahtumaApi = 'https://api.hel.fi/linkedevents/v1/search/?type=event&q=';
+let indeksi = -1;
 
 tapahtumaHaku.addEventListener('submit', function (evt) {
     evt.preventDefault();
+	indeksi = -1;
     let search = tapahtumaHakusana.value.split(' ').join('+');
     let tapahtumat = '';
     tapahtumat = tapahtumaApi + search;
@@ -18,16 +21,16 @@ tapahtumaHaku.addEventListener('submit', function (evt) {
     fetch(tapahtumat).then(function (vastaus) {
         return vastaus.json();
     }).then(function (data) {
+		console.log(data)
+		yeet=data;
         indeksi = -1;
         hakuInfo(data);
-        seuraavaNappi.addEventListener('click', () => hakuInfo(data));
-        edellinenNappi.addEventListener('click', () => hakuInfoNeg(data));
+        
     }).catch(function (error) {
         console.log(error);
     });
 });
 
-let indeksi = -1;
 // Funktio, joka tulostaa infoboxiin haun ekan tapahtuman, napista seuraavan
 function hakuInfo(data) {
     indeksi++;
@@ -40,6 +43,7 @@ function hakuInfo(data) {
     while (info.firstChild) {
         info.removeChild(info.firstChild);
     }
+	if(data.data.length){
     const a = document.createElement('article');
     info.appendChild(a);
 
@@ -74,6 +78,14 @@ function hakuInfo(data) {
         url.textContent = 'Lisää tietoa täältä!';
         a.appendChild(url);
     }
+	}
+	else{
+		    const a = document.createElement('article');
+    info.appendChild(a);
+	const h2 = document.createElement('h2');
+    h2.textContent = "Tapahtumia ei löytynyt!";
+    a.appendChild(h2);
+	}
 
 }
 
