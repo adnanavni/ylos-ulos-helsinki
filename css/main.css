@@ -94,7 +94,8 @@ header ::after {
   max-width: 1000px;
   position: relative;
   margin: auto;
-  margin-bottom: 20%;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 .mySlides {
@@ -217,4 +218,32 @@ footer p{
   font-family: 'Oswald', sans-serif;
   overflow: auto;
     transition: background 1s;
+}
+
+#kuvat {
+  display: flex;
+  margin: auto;
+  background-color: rgba(255, 255, 255, 0.603);
+  color: #161B33;
+  text-align: center;
+  width:55%;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.maisema {
+  width: 200px;
+  margin: 10px;
+}
+
+#kehittajat {
+  display: flex;
+  margin: auto;
+  margin-top: 20px;
+  background-color: rgba(255, 255, 255, 0.603);
+  color: #161B33;
+  text-align: center;
+  width:55%;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
 }
