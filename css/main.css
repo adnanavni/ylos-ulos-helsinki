@@ -247,3 +247,7 @@ footer p{
   flex-wrap: wrap;
   justify-content: space-evenly;
 }
+.tekijat {
+    border-radius: 50%;
+    filter: grayscale(100%);
+}
