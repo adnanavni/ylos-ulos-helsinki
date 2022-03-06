@@ -7,7 +7,7 @@ body{
   width: 100%;
   margin:0;
   font-family: 'Oswald', sans-serif;;
-  height: 1275px;
+  height: 100%;
 }
 
 header h1 {
@@ -237,15 +237,21 @@ footer p{
 }
 
 #kehittajat {
-  display: flex;
-  margin: auto;
-  margin-top: 20px;
-  background-color: rgba(255, 255, 255, 0.603);
-  color: #161B33;
-  text-align: center;
-  width:60%;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
+    display: flex;
+    margin: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    background-color: rgba(255, 255, 255, 0.603);
+    color: #161B33;
+    text-align: center;
+    width: 60%;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-content: center;
+    flex-direction: column;
+}
+#kehittajat img{
+    margin: 15px;
 }
 .tekijat {
     border-radius: 50%;
