@@ -183,7 +183,8 @@ todayEvents.addEventListener('click', () => tapahtumatTanaan().then(function (ja
                 navigator.geolocation.getCurrentPosition(success, error, options);
                 function success(pos) {
                     const crd = pos.coords;
-                    L.Routing.control({
+					if(supercontrol==null){
+                  supercontrol =  L.Routing.control({
                         waypoints: [
                             L.latLng(crd.latitude, crd.longitude),
                             L.latLng(jarjestys[i].location.lat, jarjestys[i].location.lon)
@@ -194,6 +195,11 @@ todayEvents.addEventListener('click', () => tapahtumatTanaan().then(function (ja
                         }
                     }).addTo(map);
                 }
+					else{
+			supercontrol.spliceWaypoints(supercontrol.getWaypoints().length - 1, 1,[jarjestys[i].location.lat,jarjestys[i].location.lon]);
+			 map.closePopup();
+			}			
+				}
             }
         });
     }

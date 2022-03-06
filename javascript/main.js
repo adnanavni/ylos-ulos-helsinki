@@ -1,5 +1,5 @@
 'use strict';
-
+ var supercontrol;
 // Käytetään leaflet.js -kirjastoa näyttämään sijainti kartalla (https://leafletjs.com/)
 const map = L.map('map');
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -54,3 +54,4 @@ function remove() {
         info.removeChild(info.firstChild);
     }
 }
+         

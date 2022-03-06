@@ -119,7 +119,8 @@ function infoBoxi(data, [n]) {
     navigator.geolocation.getCurrentPosition(success, error, options);
     function success(pos) {
       const crd = pos.coords;
-      L.Routing.control({
+		if(supercontrol==null){
+     supercontrol= L.Routing.control({
         waypoints: [
           L.latLng(crd.latitude, crd.longitude),
           L.latLng(data.data[n].location.lat, data.data[n].location.lon)
@@ -128,6 +129,11 @@ function infoBoxi(data, [n]) {
           return null;
         }
       }).addTo(map);
-    }
+    }else{
+			supercontrol.spliceWaypoints(supercontrol.getWaypoints().length - 1, 1,[data.data[n].location.lat,data.data[n].location.lon]);
+			 map.closePopup();
+			}			
+		
+	}
   }
 }

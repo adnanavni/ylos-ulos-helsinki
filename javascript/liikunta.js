@@ -83,17 +83,25 @@ function liikuntaInfo(data) {
     btn.onclick = function () {
         navigator.geolocation.getCurrentPosition(success, error, options);
         function success(pos) {
+			if(supercontrol==null){
             const crd = pos.coords;
-            L.Routing.control({
+          supercontrol=  L.Routing.control({
                 waypoints: [
                     L.latLng(crd.latitude, crd.longitude),
                     L.latLng(data.location.coordinates.wgs84.lat, data.location.coordinates.wgs84.lon)
                 ], router: L.Routing.mapbox('sk.eyJ1IjoibW9pa29ubmEiLCJhIjoiY2t6eTZjMGtlMDhqejJvcGNzanEwcDZhayJ9.an_sHh9hmXUePnTLrVzyFA')
                 , createMarker: function () {
                     return null;
-                }
+                },autoRoute:true
             }).addTo(map);
-
+			
+			}
+			else{
+				console.log(supercontrol.getWaypoints());
+			supercontrol.spliceWaypoints(supercontrol.getWaypoints().length - 1, 1,[data.location.coordinates.wgs84.lat, data.location.coordinates.wgs84.lon]);
+			 map.closePopup();
+			console.log(supercontrol.getWaypoints());
+			}
         }
     }
 
@@ -152,7 +160,8 @@ function uimaPaikatInfo(data) {
         navigator.geolocation.getCurrentPosition(success, error, options);
         function success(pos) {
             const crd = pos.coords;
-            L.Routing.control({
+			if(supercontrol==null){
+           supercontrol= L.Routing.control({
                 waypoints: [
                     L.latLng(crd.latitude, crd.longitude),
                     L.latLng(data.meta.lat, data.meta.lon)
@@ -162,6 +171,11 @@ function uimaPaikatInfo(data) {
                 }
             }).addTo(map);
         }
+			else{
+			supercontrol.spliceWaypoints(supercontrol.getWaypoints().length - 1, 1,[data.meta.lat,data.meta.lon]);
+			 map.closePopup();
+			}			
+		}
     }
 
     const br = document.createElement('br');
