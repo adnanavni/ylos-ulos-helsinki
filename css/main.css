@@ -236,7 +236,7 @@ footer p{
   background-color: rgba(255, 255, 255, 0.603);
   color: #161B33;
   text-align: center;
-  width:70%;
+  width:60%;
   flex-wrap: wrap;
   justify-content: space-evenly;
 }
@@ -254,7 +254,7 @@ footer p{
     background-color: rgba(255, 255, 255, 0.603);
     color: #161B33;
     text-align: center;
-    width: 70%;
+    width: 60%;
     flex-wrap: wrap;
     justify-content: space-evenly;
     align-content: center;
@@ -302,4 +302,8 @@ footer p{
 	background-color: #BBBBBB;
   color: white;
   transform: rotateY(180deg);
+}
+
+.otsikot {
+  width: 100%;
 }
