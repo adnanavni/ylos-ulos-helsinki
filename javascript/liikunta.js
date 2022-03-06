@@ -89,6 +89,9 @@ function liikuntaInfo(data) {
                     L.latLng(crd.latitude, crd.longitude),
                     L.latLng(data.location.coordinates.wgs84.lat, data.location.coordinates.wgs84.lon)
                 ], router: L.Routing.mapbox('sk.eyJ1IjoibW9pa29ubmEiLCJhIjoiY2t6eTZjMGtlMDhqejJvcGNzanEwcDZhayJ9.an_sHh9hmXUePnTLrVzyFA')
+                , createMarker: function () {
+                    return null;
+                }
             }).addTo(map);
 
         }
@@ -154,6 +157,9 @@ function uimaPaikatInfo(data) {
                     L.latLng(crd.latitude, crd.longitude),
                     L.latLng(data.meta.lat, data.meta.lon)
                 ], router: L.Routing.mapbox('sk.eyJ1IjoibW9pa29ubmEiLCJhIjoiY2t6eTZjMGtlMDhqejJvcGNzanEwcDZhayJ9.an_sHh9hmXUePnTLrVzyFA')
+                , createMarker: function () {
+                    return null;
+                }
             }).addTo(map);
         }
     }

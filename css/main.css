@@ -294,9 +294,6 @@ footer p{
   backface-visibility: hidden;
 }
 
-.flip-box-front { 
-}
-
 .flip-box-back {
   border-radius: 50%;
 	background-color: #BBBBBB;
