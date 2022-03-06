@@ -188,7 +188,13 @@ footer p{
 }
 #somet {
     list-style: none;
+    display: flex;
     margin-bottom: auto;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    justify-content: flex-start;
+    align-items: flex-start;
 }
 #somet li {
     display: inline-block;
