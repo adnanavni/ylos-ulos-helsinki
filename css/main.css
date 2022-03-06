@@ -89,6 +89,10 @@ header ::after {
     text-align: center;
     font-size: 22px;
   }
+
+.video {
+  margin-top: 30px;
+}
   
 .slideshow-container {
   max-width: 1000px;
