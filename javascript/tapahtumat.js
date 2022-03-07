@@ -183,23 +183,23 @@ todayEvents.addEventListener('click', () => tapahtumatTanaan().then(function (ja
                 navigator.geolocation.getCurrentPosition(success, error, options);
                 function success(pos) {
                     const crd = pos.coords;
-					if(supercontrol==null){
-                  supercontrol =  L.Routing.control({
-                        waypoints: [
-                            L.latLng(crd.latitude, crd.longitude),
-                            L.latLng(jarjestys[i].location.lat, jarjestys[i].location.lon)
+                    if (supercontrol == null) {
+                        supercontrol = L.Routing.control({
+                            waypoints: [
+                                L.latLng(crd.latitude, crd.longitude),
+                                L.latLng(jarjestys[i].location.lat, jarjestys[i].location.lon)
 
-                        ], router: L.Routing.mapbox('sk.eyJ1IjoibW9pa29ubmEiLCJhIjoiY2t6eTZjMGtlMDhqejJvcGNzanEwcDZhayJ9.an_sHh9hmXUePnTLrVzyFA')
-                        , createMarker: function () {
-                            return null;
-                        }
-                    }).addTo(map);
+                            ], router: L.Routing.mapbox('sk.eyJ1IjoibW9pa29ubmEiLCJhIjoiY2t6eTZjMGtlMDhqejJvcGNzanEwcDZhayJ9.an_sHh9hmXUePnTLrVzyFA')
+                            , createMarker: function () {
+                                return null;
+                            }
+                        }).addTo(map);
+                    }
+                    else {
+                        supercontrol.spliceWaypoints(supercontrol.getWaypoints().length - 1, 1, [jarjestys[i].location.lat, jarjestys[i].location.lon]);
+                        map.closePopup();
+                    }
                 }
-					else{
-			supercontrol.spliceWaypoints(supercontrol.getWaypoints().length - 1, 1,[jarjestys[i].location.lat,jarjestys[i].location.lon]);
-			 map.closePopup();
-			}			
-				}
             }
         });
     }
