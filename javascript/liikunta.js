@@ -74,7 +74,7 @@ function liikuntaInfo(data) {
 
     const linkki = document.createElement('a');
     linkki.href = data.www;
-    linkki.textContent = data.www;
+    linkki.textContent = 'Lisää tietoa täältä!';
     info.appendChild(linkki);
 
     const btn = document.createElement('button');
@@ -147,7 +147,7 @@ function uimaPaikatInfo(data) {
     if (data.meta.site_url != "") {
         const linkki = document.createElement('a');
         linkki.href = data.meta.site_url;
-        linkki.textContent = data.meta.site_url;
+        linkki.textContent = 'Lisää tietoa täältä!';
         info.appendChild(linkki);
     }
 

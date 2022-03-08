@@ -32,9 +32,13 @@ body{
     height: 100%;
     border:groove 10px;
     border-color:darkred;
-    background-color: rgba(255, 255, 255, 0.603);
+    background-color: rgba(255, 255, 255, 0.8);
     text-align: center;
     width: 100%;
+    padding-bottom: 20px;
+}
+#infotapahtuma a{
+    margin-bottom: 10px;
 }
 
 #tapahtumat {
@@ -94,6 +98,7 @@ body{
     height: 100%;
     width: 40%;
     display: flex;
+    padding: 0 10px;
 }
 #hakukenttä{
     width: 100%;
@@ -112,4 +117,9 @@ body{
     background-color: darkred; 
     color: white;
     border: groove 2px;
+    margin-top: 15px;
+    padding: 10px;
+}
+h2{
+    font-size: 30px;
 }

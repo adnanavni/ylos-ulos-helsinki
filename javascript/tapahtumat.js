@@ -150,7 +150,7 @@ todayEvents.addEventListener('click', () => tapahtumatTanaan().then(function (ja
             info.appendChild(a);
 
             const nimi = document.createElement('h2');
-            nimi.textContent = 'Tapahtuma: ' + jarjestys[i].name.fi;
+            nimi.textContent = jarjestys[i].name.fi;
             a.appendChild(nimi);
 
             const pvm = document.createElement('p');

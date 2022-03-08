@@ -84,11 +84,14 @@ header ::after {
     width: 75%;
     height: 600px;
     margin: auto;
-    background-image: linear-gradient(to bottom, rgba(255,0,0,0), rgba(244,239,228,1));
-    color:#161B33;
+    background-image: linear-gradient(to bottom, rgba(255,239,228,0.1), rgba(244,239,228,1));
+    color:black;
     text-align: center;
     font-size: 22px;
   }
+#artikkeli p {
+    padding: 0 10px;
+}
 
 .video {
   margin-top: 30px;
@@ -233,7 +236,7 @@ footer p{
 #kuvat {
   display: flex;
   margin: auto;
-  background-color: rgba(255, 255, 255, 0.603);
+  background-color: rgba(244,239,228,0.9);
   color: #161B33;
   text-align: center;
   width:60%;
@@ -251,7 +254,7 @@ footer p{
     margin: auto;
     margin-top: 20px;
     margin-bottom: 20px;
-    background-color: rgba(255, 255, 255, 0.603);
+    background-image: linear-gradient(to top, rgba(255,239,228,0), rgba(244,239,228,1));
     color: #161B33;
     text-align: center;
     width: 60%;
