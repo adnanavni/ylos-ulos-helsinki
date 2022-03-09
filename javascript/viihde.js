@@ -111,6 +111,7 @@ function infoBoxi(data, [n]) {
   tiedot.textContent = 'Lisää tietoa täältä!';
   a.appendChild(tiedot);
 
+  //Nappi, jonka avulla käynnistetään navigointi omasta paikasta valittuun paikkaan
   const btn = document.createElement('button');
   btn.textContent = "Näytä reitti";
   btn.setAttribute("id", "navb");
@@ -119,21 +120,21 @@ function infoBoxi(data, [n]) {
     navigator.geolocation.getCurrentPosition(success, error, options);
     function success(pos) {
       const crd = pos.coords;
-		if(supercontrol==null){
-     supercontrol= L.Routing.control({
-        waypoints: [
-          L.latLng(crd.latitude, crd.longitude),
-          L.latLng(data.data[n].location.lat, data.data[n].location.lon)
-        ], router: L.Routing.mapbox('sk.eyJ1IjoibW9pa29ubmEiLCJhIjoiY2t6eTZjMGtlMDhqejJvcGNzanEwcDZhayJ9.an_sHh9hmXUePnTLrVzyFA')
-        , createMarker: function () {
-          return null;
-        }
-      }).addTo(map);
-    }else{
-			supercontrol.spliceWaypoints(supercontrol.getWaypoints().length - 1, 1,[data.data[n].location.lat,data.data[n].location.lon]);
-			 map.closePopup();
-			}			
-		
-	}
+      if (supercontrol == null) {
+        supercontrol = L.Routing.control({
+          waypoints: [
+            L.latLng(crd.latitude, crd.longitude),
+            L.latLng(data.data[n].location.lat, data.data[n].location.lon)
+          ], router: L.Routing.mapbox('sk.eyJ1IjoibW9pa29ubmEiLCJhIjoiY2t6eTZjMGtlMDhqejJvcGNzanEwcDZhayJ9.an_sHh9hmXUePnTLrVzyFA')
+          , createMarker: function () {
+            return null;
+          }
+        }).addTo(map);
+      } else {
+        supercontrol.spliceWaypoints(supercontrol.getWaypoints().length - 1, 1, [data.data[n].location.lat, data.data[n].location.lon]);
+        map.closePopup();
+      }
+
+    }
   }
 }

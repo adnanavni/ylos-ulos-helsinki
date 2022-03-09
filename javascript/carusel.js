@@ -1,4 +1,4 @@
-//karuselli
+//Karusellin toiminta
 let slideIndex = 1;
 showSlides(slideIndex);
 
@@ -26,7 +26,7 @@ function showSlides(n) {
   dots[slideIndex - 1].className += " active";
 }
 
-//taustakuvan vaihtoon
+//Taustakuvan vaihtuminen hiiren mennessä nav baarissa esimerkiksi liikunnan päälle
 const main = document.querySelector('main');
 const li = document.querySelectorAll('#menu li');
 
@@ -42,8 +42,7 @@ li.forEach(el => {
   })
 })
 
-//käyntilaskuri
+//Käyntilaskuri
 function websiteVisits(response) {
   document.querySelector("#visits").textContent = response.value;
-
 }

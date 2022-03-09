@@ -13,7 +13,6 @@ const tapahtumaHaku = document.getElementById('hakukentta');
 const tapahtumaHakusana = document.getElementById('hakusana');
 const tapahtumaApi = 'https://api.hel.fi/linkedevents/v1/search/?type=event&q=';
 
-
 tapahtumaHaku.addEventListener('submit', function (evt) {
     evt.preventDefault();
     indeksi = -1;
@@ -175,6 +174,7 @@ todayEvents.addEventListener('click', () => tapahtumatTanaan().then(function (ja
                 a.appendChild(url);
             }
 
+            //Nappi, jonka avulla käynnistetään navigointi omasta paikasta valittuun paikkaan
             const btn = document.createElement('button');
             btn.textContent = "Näytä reitti";
             btn.setAttribute("id", "navb");

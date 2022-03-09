@@ -1,5 +1,7 @@
 'use strict';
 
+// Kaikki karttojen käyttämär iconit
+
 let omaIcon = L.icon({
     iconUrl: './resources/ikonit/oma-ikoni.png',
     iconSize: [50, 50],

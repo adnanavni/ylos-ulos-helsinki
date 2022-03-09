@@ -1,5 +1,6 @@
 'use strict';
 
+// Muuttuja, johon tallennetetaan reitti olio
 let supercontrol;
 
 // Käytetään leaflet.js -kirjastoa näyttämään sijainti kartalla (https://leafletjs.com/)

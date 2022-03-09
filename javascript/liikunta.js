@@ -10,8 +10,7 @@ liikuntaNappi.addEventListener('click', function () { remove(); liikunta() });
 const uimaNappi = document.getElementById('vesi');
 uimaNappi.addEventListener('click', function () { remove(); uimaPaikat() });
 
-// Funktio joka hakee ensin Helsingin alueelta sportsPlaceId:t, joiden avulla hakee myöhemmin tietoja liikuntapaikasta
-// Kartasta painaessa muodostaa elementtejä jotta informaatio APIsta ilmestyisi sivulle, tulostaa ja käynnistää myös navigoinnin
+// Funktio joka hakee ensin Helsingin alueelta olevien liikunta paikkojen sportsPlaceId:t
 async function liikunta() {
     const proxy = 'https://api.allorigins.win/get?url=';
     const haku = 'http://lipas.cc.jyu.fi/api/sports-places?searchString=helsinki';
@@ -23,6 +22,7 @@ async function liikunta() {
     const liikuntaPaikkaId = JSON.parse(data.contents);
     liikuntaKartalle(liikuntaPaikkaId);
 
+    //funktio, joka hyädyntää aikasemmin saadut sportsplaceId:t ja tulostaa niiden avulla kartasta klikattaessa tiedot infoboxiin ja mahdollisuuden reititykselle
     function liikuntaKartalle(data) {
         for (let i = 0; i < data.length; i++) {
             fetch('https://api.allorigins.win/get?url=http://lipas.cc.jyu.fi/api/sports-places/' + data[i].sportsPlaceId)
@@ -42,7 +42,7 @@ async function liikunta() {
     }
 }
 
-//funktio joka tulostaa infoboxiin liikunta paikoista tiedot
+//funktio joka tulostaa infoboxiin liikunta paikoista tiedot DOM elementtien avulla
 function liikuntaInfo(data) {
     while (info.firstChild) {
         info.removeChild(info.firstChild)
@@ -111,7 +111,7 @@ function liikuntaInfo(data) {
 }
 
 // Funktio, joka hakee uimapaikat
-// Kartasta painaessa muodostaa elementtejä jotta informaatio APIsta ilmestyisi sivulle, tulostaa ja käynnistää myös navigoinnin
+// Kartasta painaessa muodostaa elementtejä jotta informaatio APIsta ilmestyisi sivulle ja
 function uimaPaikat() {
     fetch('https://iot.fvh.fi/opendata/uiras/uiras2_v1.json')
         .then(function (vastaus) {
@@ -151,6 +151,7 @@ function uimaPaikatInfo(data) {
         info.appendChild(linkki);
     }
 
+    //Nappi, jonka avulla käynnistetään navigointi omasta paikasta valittuun paikkaan
     const btn = document.createElement('button');
     btn.textContent = "Näytä reitti";
     btn.setAttribute("id", "navb");

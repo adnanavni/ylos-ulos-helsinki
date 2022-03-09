@@ -2,6 +2,7 @@
 
 const saa = document.getElementById("saa");
 
+// Sää apin hakeminen ja saatu data tulostetaan funktion avulla sivulle
 fetch('https://api.openweathermap.org/data/2.5/weather?q=Helsinki&lang=fi&appid=2a8607984de34f45ad05ca18692bb135')
   .then(function (resp) { return resp.json() })
   .then(function (data) {
@@ -11,6 +12,8 @@ fetch('https://api.openweathermap.org/data/2.5/weather?q=Helsinki&lang=fi&appid=
     console.log(err);
   });
 
+
+//funktio, jossa tulostetaan saatu data DOM elementtien avulla tietoa karusellin sää artikkeliin
 function info(data) {
   const el = document.createElement("p");
   const tuntuu = document.createElement("p");
@@ -39,6 +42,7 @@ function info(data) {
   saa.appendChild(set);
 }
 
+// funktio, jolla saadaan fetchatun datan aika luettavaan muotoon
 function time(yeet) {
   let date = new Date(yeet * 1000);
   let hours = date.getHours();
