@@ -34,9 +34,10 @@ body{
 #info {
     margin: 20px 0;
     height: 100%;
+    padding: 0 10px;
     border:groove 10px;
     border-color:deeppink;
-    background-color: rgba(255, 255, 255, 0.603);
+    background-color: rgba(255, 255, 255, 0.8);
     text-align: center;
     width: 40%;
 }
@@ -58,6 +59,8 @@ body{
 
 #navb{
     text-align: center;
+    margin: 20px 0;
+    padding: 10px;
     background-color: #161B33;
     color: white;
     border: groove 2px;
@@ -69,4 +72,7 @@ body{
     justify-content: space-evenly;
     gap: 20px 20px;
     margin: 0 10px;
+}
+h2{
+    font-size: 30px;
 }

@@ -54,7 +54,7 @@ main{
     height: 100%;
     border:groove 10px;
     border-color:#161B33;
-    background-color: rgba(255, 255, 255, 0.603);
+    background-color: rgba(255, 255, 255, 0.8);
     text-align: center;
     width: 40%;
 }
@@ -71,6 +71,8 @@ main{
 
 #navb{
     text-align: center;
+    margin: 20px 0;
+    padding: 10px;
     background-color: #161B33; 
     color: white;
     border: groove 2px;
@@ -83,4 +85,7 @@ main{
     gap: 20px 20px;
     margin: 0 10px;
 
+}
+h3{
+    font-size: 30px;
 }
