@@ -43,6 +43,7 @@ body{
 }
 
 .nappulat {
+    cursor: pointer;
     background-color: deeppink;
     text-align: center;
     border:groove 2px;
